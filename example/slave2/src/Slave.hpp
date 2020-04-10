@@ -1,4 +1,3 @@
-
 #ifndef SLAVE_H_
 #define SLAVE_H_
 
@@ -56,7 +55,7 @@ public:
     }
 
     void initialize() {
-        *y = std::sin(currentStep + *a);
+             *y = std::sin(currentStep + *a);
     }
 
     void doStep(uint64_t steps) {
@@ -79,14 +78,14 @@ public:
     void start() { manager->start(); }
 
     SlaveDescription_t getSlaveDescription(){
-        SlaveDescription_t slaveDescription = make_SlaveDescription(1, 0, "dcpslave", "b5279485-720d-4542-9f29-bee4d9a75ef8");
+        SlaveDescription_t slaveDescription = make_SlaveDescription(1, 0, "dcpslave2", "b5279485-720d-4542-9f29-bee4d9a75ef9");
         slaveDescription.OpMode.SoftRealTime = make_SoftRealTime_ptr();
         Resolution_t resolution = make_Resolution();
         resolution.numerator = 1;
         resolution.denominator = 100;
         slaveDescription.TimeRes.resolutions.push_back(resolution);
         slaveDescription.TransportProtocols.UDP_IPv4 = make_UDP_ptr();
-        slaveDescription.TransportProtocols.UDP_IPv4->Control =
+         slaveDescription.TransportProtocols.UDP_IPv4->Control =
                 make_Control_ptr(HOST, 8080);
         ;
         slaveDescription.TransportProtocols.UDP_IPv4->DAT_input_output = make_DAT_ptr();
@@ -116,15 +115,15 @@ public:
                 1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: sin(%uint64 + %float64) = %float64"));
 
        return slaveDescription;
-    }
+        }
 
 private:
     DcpManagerSlave *manager;
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.0.229";
-    const int PORT = 8080;
+    const char *const HOST = "192.168.0.187";
+    const int PORT = 8082;
 
     uint32_t numerator;
     uint32_t denominator;
