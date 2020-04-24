@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dcpSlaveDescription
-  dcpMajorVersion="1" dcpMinorVersion="0" dcpSlaveName="dcpslave" uuid="b5279485-720d-4542-9f29-bee4d9a75ef9">
+  dcpMajorVersion="1" dcpMinorVersion="0" dcpSlaveName="dcpslave" uuid="b5279485-720d-4542-9f29-bee4d9a75ef8">
     <OpMode>
         <SoftRealTime/>
     </OpMode>
@@ -9,7 +9,7 @@
     </TimeRes>
     <TransportProtocols>
         <UDP_IPv4>
-            <Control host="127.0.0.1" port="8080"/>
+            <Control host="192.168.0.229" port="8080"/>
             <DAT_input_output host="127.0.0.1">
                 <AvailablePortRange from="2048" to="65535"/>
             </DAT_input_output>

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/2020-map-hybridcosim/DCPLib/example/master/src/Main.cpp
+/home/debian/2020-map-hybridcosim/DCPLib/example/master/src/Main.cpp
 MasterModel.h
-/home/2020-map-hybridcosim/DCPLib/example/master/src/MasterModel.h
+/home/debian/2020-map-hybridcosim/DCPLib/example/master/src/MasterModel.h
 
-/home/2020-map-hybridcosim/DCPLib/example/master/src/MasterModel.h
+/home/debian/2020-map-hybridcosim/DCPLib/example/master/src/MasterModel.h
 iostream
 -
 cstdint

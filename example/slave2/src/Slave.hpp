@@ -1,3 +1,4 @@
+
 #ifndef SLAVE_H_
 #define SLAVE_H_
 
@@ -50,22 +51,26 @@ public:
         simulationTime = 0;
         currentStep = 0;
 
+        //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
         a = manager->getInput<float64_t *>(a_vr);
         y = manager->getOutput<float64_t *>(y_vr);
     }
 
     void initialize() {
-             *y = std::sin(currentStep + *a);
+        *y = std::sin(currentStep + *a);
     }
 
     void doStep(uint64_t steps) {
+        //timediff is calculated using time resolution that is defined at config level
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
-
+        //calculate new value
         *y = std::sin(currentStep + *a);
 
+        //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *a, *y);
+        //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
     }
@@ -78,14 +83,14 @@ public:
     void start() { manager->start(); }
 
     SlaveDescription_t getSlaveDescription(){
-        SlaveDescription_t slaveDescription = make_SlaveDescription(1, 0, "dcpslave2", "b5279485-720d-4542-9f29-bee4d9a75ef9");
+        SlaveDescription_t slaveDescription = make_SlaveDescription(1, 0, "dcpslave", "b5279485-720d-4542-9f29-bee4d9a75ef8");
         slaveDescription.OpMode.SoftRealTime = make_SoftRealTime_ptr();
         Resolution_t resolution = make_Resolution();
         resolution.numerator = 1;
         resolution.denominator = 100;
         slaveDescription.TimeRes.resolutions.push_back(resolution);
         slaveDescription.TransportProtocols.UDP_IPv4 = make_UDP_ptr();
-         slaveDescription.TransportProtocols.UDP_IPv4->Control =
+        slaveDescription.TransportProtocols.UDP_IPv4->Control =
                 make_Control_ptr(HOST, 8080);
         ;
         slaveDescription.TransportProtocols.UDP_IPv4->DAT_input_output = make_DAT_ptr();
@@ -115,15 +120,15 @@ public:
                 1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: sin(%uint64 + %float64) = %float64"));
 
        return slaveDescription;
-        }
+    }
 
 private:
     DcpManagerSlave *manager;
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.0.187";
-    const int PORT = 8082;
+    const char *const HOST = "192.168.0.229"; //DEDICATED LINUX ADDR (SLAVE1)
+    const int PORT = 8080; //SLAVE1 PORT. SLAVE2: PORT 8082
 
     uint32_t numerator;
     uint32_t denominator;
@@ -131,13 +136,16 @@ private:
     double simulationTime;
     uint64_t currentStep;
 
+    //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
             "[Time = %float64]: sin(%uint64 + %float64) = %float64",
             {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
-
+     
+    //value reference for a = 2 (see slave desc)
     float64_t *a;
     const uint32_t a_vr = 2;
+    //value reference for y = 1 (see slave desc)
     float64_t *y;
     const uint32_t y_vr = 1;
 

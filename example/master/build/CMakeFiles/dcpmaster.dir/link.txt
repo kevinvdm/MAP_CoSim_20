@@ -1,1 +1,1 @@
-/usr/bin/c++      CMakeFiles/dcpmaster.dir/src/Main.cpp.o  -o dcpmaster -lpthread /usr/lib/arm-linux-gnueabihf/libxerces-c.so 
+/usr/bin/c++     CMakeFiles/dcpmaster.dir/src/Main.cpp.o  -o dcpmaster -lpthread /usr/lib/arm-linux-gnueabihf/libxerces-c.so 
