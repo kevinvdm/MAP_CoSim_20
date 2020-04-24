@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = -DASIO_STANDALONE -DDEBUG
 
-CXX_INCLUDES = -I/home/debian/2020-map-hybridcosim/DCPLib/example/master/src -isystem /usr/local/include/DCPLib/ethernet -isystem /usr/local/include -isystem /usr/local/include/DCPLib/core -isystem /usr/local/include/DCPLib/master -isystem /usr/local/include/DCPLib/xml 
+CXX_INCLUDES = -I/home/kevinv/Documents/MAP_CoSim_20/example/master/src -isystem /usr/local/include/DCPLib/ethernet -isystem /usr/local/include -isystem /usr/local/include/DCPLib/core -isystem /usr/local/include/DCPLib/master -isystem /usr/local/include/DCPLib/xml 
 
