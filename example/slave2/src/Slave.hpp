@@ -127,8 +127,8 @@ private:
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.0.229"; //DEDICATED LINUX ADDR (SLAVE1)
-    const int PORT = 8080; //SLAVE1 PORT. SLAVE2: PORT 8082
+    const char *const HOST = "192.168.7.2"; //BBB ADDR (SLAVE2)
+    const int PORT = 8082; //SLAVE2 PORT. SLAVE1: PORT 8080
 
     uint32_t numerator;
     uint32_t denominator;
