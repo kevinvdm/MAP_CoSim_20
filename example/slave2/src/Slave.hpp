@@ -58,11 +58,7 @@ public:
         delete udpDriver;
     }
 
-
-    void configure() {
-        simulationTime = 0;
-        currentStep = 0;
-
+    void eCap_Init() {
         if (Io->Errr) {
                printf("initialisation failed (%s)\n", Io->Errr);}
 
@@ -77,7 +73,12 @@ public:
           printf("failed reading input @P_IN (%s)\n", Io->Errr);}
 
         printf("\r    Frequency: %10f , Duty: %10f     ", f1, d1); // info
+    }
 
+
+    void configure() {
+        simulationTime = 0;
+        currentStep = 0;
 
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
         a = manager->getInput<float64_t *>(a_vr);
