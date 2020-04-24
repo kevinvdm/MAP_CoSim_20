@@ -72,10 +72,19 @@ public:
         pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1); //! create new driver structure ------    FREE PINMUXING BY USING ENUM PRUIO_ACT_FREMUX
 
         if (Io->Errr) {
-               printf("initialisation failed (%s)\n", Io->Errr); break;}
+               printf("initialisation failed (%s)\n", Io->Errr);}
 
         if (pruio_cap_config(Io, P_IN, 2.)) { //         configure input pin
-               printf("failed setting input @P_IN (%s)\n", Io->Errr); break;}
+               printf("failed setting input @P_IN (%s)\n", Io->Errr);}
+
+        //           pin config OK, transfer local settings to PRU and start
+        if (pruio_config(Io, 1, 0x1FE, 0, 4)) {
+                       printf("config failed (%s)\n", Io->Errr);}
+        
+        if (pruio_cap_Value(Io, P_IN, &f1, &d1)) { //    get current input
+          printf("failed reading input @P_IN (%s)\n", Io->Errr);}
+
+        printf("\r    Frequency: %10f , Duty: %10f     ", f1, d1); // info
 
         *y = std::sin(currentStep + *a);
     }
@@ -86,7 +95,9 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *y = std::sin(currentStep + *a);
+        if (pruio_cap_Value(Io, P_IN, &f1, &d1)) { //    get current input
+          printf("failed reading input @P_IN (%s)\n", Io->Errr);}
+        *y = d1;  
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *a, *y);
@@ -162,6 +173,10 @@ private:
             "[Time = %float64]: Current step: %uint64 , Frequency: %float64 , Duty cycle: %float64",
             {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
      
+    float_t
+        f1 //                         Variable for calculated frequency.
+      , d1; //                        Variable for calculated duty cycle.
+
     //value reference for a = 2 (see slave desc)
     float64_t *a;
     const uint32_t a_vr = 2;
