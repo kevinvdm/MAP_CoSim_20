@@ -2,6 +2,8 @@
 #ifndef SLAVE_H_
 #define SLAVE_H_
 
+#define _GNU_SOURCE 1
+
 #include <dcp/helper/Helper.hpp>
 #include <dcp/log/OstreamLog.hpp>
 #include <dcp/logic/DcpManagerSlave.hpp>
@@ -13,6 +15,16 @@
 #include <stdarg.h>
 #include <thread>
 #include <cmath>
+
+#include "stdio.h"
+#include <termios.h>
+#include <unistd.h>
+#include <errno.h>
+#include "../c_wrapper/pruio.h"
+#include "../c_wrapper/pruio_pins.h"
+
+//! The pin for CAP input.
+#define P_IN P9_42
 
 
 class Slave {
@@ -57,6 +69,14 @@ public:
     }
 
     void initialize() {
+        pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1); //! create new driver structure ------    FREE PINMUXING BY USING ENUM PRUIO_ACT_FREMUX
+
+        if (Io->Errr) {
+               printf("initialisation failed (%s)\n", Io->Errr); break;}
+
+        if (pruio_cap_config(Io, P_IN, 2.)) { //         configure input pin
+               printf("failed setting input @P_IN (%s)\n", Io->Errr); break;}
+
         *y = std::sin(currentStep + *a);
     }
 
@@ -91,7 +111,7 @@ public:
         slaveDescription.TimeRes.resolutions.push_back(resolution);
         slaveDescription.TransportProtocols.UDP_IPv4 = make_UDP_ptr();
         slaveDescription.TransportProtocols.UDP_IPv4->Control =
-                make_Control_ptr(HOST, 8080);
+                make_Control_ptr(HOST, 8082);
         ;
         slaveDescription.TransportProtocols.UDP_IPv4->DAT_input_output = make_DAT_ptr();
         slaveDescription.TransportProtocols.UDP_IPv4->DAT_input_output->availablePortRanges.push_back(
@@ -117,7 +137,7 @@ public:
         slaveDescription.Log = make_Log_ptr();
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
-                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: sin(%uint64 + %float64) = %float64"));
+                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: Current step: %uint64 , Frequency: %float64 , Duty cycle: %float64"));
 
        return slaveDescription;
     }
@@ -139,7 +159,7 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64]: sin(%uint64 + %float64) = %float64",
+            "[Time = %float64]: Current step: %uint64 , Frequency: %float64 , Duty cycle: %float64",
             {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
      
     //value reference for a = 2 (see slave desc)
