@@ -69,8 +69,6 @@ public:
     }
 
     void initialize() {
-        pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1); //! create new driver structure ------    FREE PINMUXING BY USING ENUM PRUIO_ACT_FREMUX
-
         if (Io->Errr) {
                printf("initialisation failed (%s)\n", Io->Errr);}
 
@@ -158,6 +156,9 @@ private:
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
+
+    pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1); //! create new driver structure ------    FREE PINMUXING BY USING ENUM PRUIO_ACT_FREMUX
+
     const char *const HOST = "192.168.7.2"; //BBB ADDR (SLAVE2)
     const int PORT = 8082; //SLAVE2 PORT. SLAVE1: PORT 8080
 
