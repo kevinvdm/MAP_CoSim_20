@@ -20,8 +20,8 @@
 #include <termios.h>
 #include <unistd.h>
 #include <errno.h>
-#include "../c_wrapper/pruio.h"
-#include "../c_wrapper/pruio_pins.h"
+#include "libpruio/pruio.h"
+#include "libpruio/pruio_pins.h"
 
 //! The pin for CAP input.
 #define P_IN P9_42

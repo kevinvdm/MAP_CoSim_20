@@ -31,6 +31,18 @@ thread
 -
 cmath
 -
+stdio.h
+/home/debian/MAP_CoSim_20/example/slave2/src/stdio.h
+termios.h
+-
+unistd.h
+-
+errno.h
+-
+libpruio/pruio.h
+/home/debian/MAP_CoSim_20/example/slave2/src/libpruio/pruio.h
+libpruio/pruio_pins.h
+/home/debian/MAP_CoSim_20/example/slave2/src/libpruio/pruio_pins.h
 
 /usr/local/include/DCPLib/core/dcp/driver/DcpDriver.hpp
 dcp/logic/LogManager.hpp
