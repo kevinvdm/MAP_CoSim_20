@@ -57,7 +57,7 @@ public:
     }
 
     void initialize() {
-        *y = std::sin(currentStep + *a);
+        *y = 100;
     }
 
     void doStep(uint64_t steps) {
@@ -66,7 +66,7 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *y = std::sin(currentStep + *a);
+        *y = 100;
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *a, *y);
@@ -117,7 +117,7 @@ public:
         slaveDescription.Log = make_Log_ptr();
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
-                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: sin(%uint64 + %float64) = %float64"));
+                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 a: %float64 y: %float64"));
 
        return slaveDescription;
     }
@@ -139,7 +139,7 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64]: sin(%uint64 + %float64) = %float64",
+            "[Time = %float64]: step: %uint64 a: %float64 y: %float64",
             {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
      
     //value reference for a = 2 (see slave desc)
