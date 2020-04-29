@@ -92,19 +92,11 @@ private:
 
         manager->CFG_scope(id, 1, DcpScope::Initialization_Run_NonRealTime);
 
-        manager->CFG_scope(2, 1, DcpScope::Initialization_Run_NonRealTime);
-
         manager->CFG_input(id, 1, 0, slaveDescription->Variables.at(1).valueReference, DcpDataType::float64);
-
-        manager->CFG_input(2, 1, 0, slaveDescription2->Variables.at(1).valueReference, DcpDataType::float64);
 
         manager->CFG_output(id, 1, 0, slaveDescription->Variables.at(0).valueReference);
 
-        manager->CFG_output(2, 1, 0, slaveDescription2->Variables.at(0).valueReference);
-
         manager->CFG_steps(id, 1, 1);
-
-        manager->CFG_steps(2, 1, 1);
 
         if (id == 1){
         manager->CFG_time_res(1, slaveDescription->TimeRes.resolutions.front().numerator,

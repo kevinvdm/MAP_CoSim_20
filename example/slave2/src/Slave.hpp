@@ -83,7 +83,7 @@ public:
     void start() { manager->start(); }
 
     SlaveDescription_t getSlaveDescription(){
-        SlaveDescription_t slaveDescription = make_SlaveDescription(1, 0, "dcpslave", "b5279485-720d-4542-9f29-bee4d9a75ef8");
+        SlaveDescription_t slaveDescription = make_SlaveDescription(1, 0, "dcpslave2", "b5279485-720d-4542-9f29-bee4d9a75ef9");
         slaveDescription.OpMode.SoftRealTime = make_SoftRealTime_ptr();
         Resolution_t resolution = make_Resolution();
         resolution.numerator = 1;
@@ -127,7 +127,7 @@ private:
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.7.2"; //BBB ADDR (SLAVE2)
+    const char *const HOST = "192.168.0.249"; //BBB ADDR (SLAVE2)
     const int PORT = 8082; //SLAVE2 PORT. SLAVE1: PORT 8080
 
     uint32_t numerator;

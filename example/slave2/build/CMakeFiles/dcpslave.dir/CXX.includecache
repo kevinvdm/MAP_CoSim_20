@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/debian/MAP_CoSim_20/example/slave2/src/Main.cpp
+/home/kevinv/Documents/MAP_CoSim_20/example/slave2/src/Main.cpp
 Slave.hpp
-/home/debian/MAP_CoSim_20/example/slave2/src/Slave.hpp
+/home/kevinv/Documents/MAP_CoSim_20/example/slave2/src/Slave.hpp
 
-/home/debian/MAP_CoSim_20/example/slave2/src/Slave.hpp
+/home/kevinv/Documents/MAP_CoSim_20/example/slave2/src/Slave.hpp
 dcp/helper/Helper.hpp
 -
 dcp/log/OstreamLog.hpp
