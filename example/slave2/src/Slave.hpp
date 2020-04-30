@@ -116,8 +116,11 @@ public:
         slaveDescription.Variables.push_back(make_Variable_input("b", b_vr, caus_b));
         slaveDescription.Log = make_Log_ptr();
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
+        slaveDescription.Log->categories.push_back(make_Category(2, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
                 1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 b: %float64 z: %float64"));
+        slaveDescription.Log->templates.push_back(make_Template(
+                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 b: %float64 z: %float64"));
 
        return slaveDescription;
     }

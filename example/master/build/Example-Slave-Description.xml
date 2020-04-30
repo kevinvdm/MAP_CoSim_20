@@ -35,9 +35,11 @@
     <Log>
         <Categories>
             <Category id="1" name="DCP_SLAVE"/>
+            <Category id="2" name="DCP_SLAVE"/>
         </Categories>
         <Templates>
             <Template id="1" category="1" level="3" msg="[Time = %float64]: sin(%uint64 + %float64) = %float64"/>
+            <Template id="2" category="1" level="3" msg="[Time = %float64]: sin(%uint64 + %float64) = %float64"/>
         </Templates>
     </Log>
 </dcpSlaveDescription>

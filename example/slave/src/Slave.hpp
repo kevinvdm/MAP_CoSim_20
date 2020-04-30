@@ -57,7 +57,7 @@ public:
     }
 
     void initialize() {
-        *y = 100;
+        *y = *a;
     }
 
     void doStep(uint64_t steps) {
@@ -66,7 +66,7 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *y = 100;
+        *y = *a;
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *a, *y);
@@ -118,6 +118,8 @@ public:
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
                 1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 a: %float64 y: %float64"));
+        slaveDescription.Log->templates.push_back(make_Template(
+                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 a: %float64 y: %float64"));
 
        return slaveDescription;
     }
