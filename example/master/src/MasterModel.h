@@ -106,15 +106,15 @@ private:
                                  slaveDescription->TimeRes.resolutions.front().denominator);
 
         manager->CFG_source_network_information_UDP(1, 1, asio::ip::address_v4::from_string(
-                        *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
+                        *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
         manager->CFG_target_network_information_UDP(1, 1,  asio::ip::address_v4::from_string(
-                *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
+                *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
 
         manager->CFG_source_network_information_UDP(1, 2, asio::ip::address_v4::from_string(
                         *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
         manager->CFG_target_network_information_UDP(1, 2,  asio::ip::address_v4::from_string(
                 *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
-        numOfCmd[1] = 11;
+        numOfCmd[1] = 9;
         }
         else {
 
@@ -137,10 +137,10 @@ private:
                 *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
         
         manager->CFG_source_network_information_UDP(2, 2, asio::ip::address_v4::from_string(
-                        *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
+                        *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
         manager->CFG_target_network_information_UDP(2, 2,  asio::ip::address_v4::from_string(
-                *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
-        numOfCmd[2] = 11;
+                *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
+        numOfCmd[2] = 9;
         }
     }
 

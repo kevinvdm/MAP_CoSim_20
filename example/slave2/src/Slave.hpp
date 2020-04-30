@@ -66,7 +66,7 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *z = 200;
+        *z = *b +10;
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *b, *z);
