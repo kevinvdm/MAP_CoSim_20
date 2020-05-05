@@ -29,7 +29,7 @@
 
 using namespace fmi4cpp;
 
-const double stop = 0.01;
+const double stop = 10;
 const double stepSize = 1E-3;
 
 int main()
