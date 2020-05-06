@@ -169,6 +169,33 @@ dcpslave/fast:
 	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/build
 .PHONY : dcpslave/fast
 
+src/External_Sim.o: src/External_Sim.cpp.o
+
+.PHONY : src/External_Sim.o
+
+# target to build an object file
+src/External_Sim.cpp.o:
+	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o
+.PHONY : src/External_Sim.cpp.o
+
+src/External_Sim.i: src/External_Sim.cpp.i
+
+.PHONY : src/External_Sim.i
+
+# target to preprocess a source file
+src/External_Sim.cpp.i:
+	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/External_Sim.cpp.i
+.PHONY : src/External_Sim.cpp.i
+
+src/External_Sim.s: src/External_Sim.cpp.s
+
+.PHONY : src/External_Sim.s
+
+# target to generate assembly for a file
+src/External_Sim.cpp.s:
+	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/External_Sim.cpp.s
+.PHONY : src/External_Sim.cpp.s
+
 src/Main.o: src/Main.cpp.o
 
 .PHONY : src/Main.o
@@ -209,6 +236,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
 	@echo "... install"
+	@echo "... src/External_Sim.o"
+	@echo "... src/External_Sim.i"
+	@echo "... src/External_Sim.s"
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
