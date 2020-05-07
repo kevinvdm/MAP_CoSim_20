@@ -7,6 +7,7 @@
 #include <dcp/logic/DcpManagerSlave.hpp>
 #include <dcp/model/pdu/DcpPduFactory.hpp>
 #include <dcp/driver/ethernet/udp/UdpDriver.hpp>
+#include <fmi4cpp/fmi4cpp.hpp>
 
 #include <cstdint>
 #include <cstdio>

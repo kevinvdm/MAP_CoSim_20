@@ -254,6 +254,9 @@ FMI4CPP_LOG_LEVEL_VALUES:STRING=DEFAULT;OFF;TRACE;DEBUG;INFO;WARN;ERROR;FATAL
 //Build using conan
 FMI4CPP_USING_CONAN:BOOL=OFF
 
+//The directory containing a CMake configuration file for FMI4cpp.
+FMI4cpp_DIR:PATH=FMI4cpp_DIR-NOTFOUND
+
 //Path to a file.
 LIBZIP_INCLUDE_DIR_zip:PATH=/usr/include
 

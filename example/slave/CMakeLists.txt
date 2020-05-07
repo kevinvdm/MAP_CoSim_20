@@ -19,9 +19,9 @@ find_package(Threads REQUIRED)
 find_package(ASIO REQUIRED )
 
 include_directories("src")
-include_directories(${PROJECT_SOURCE_DIR}/FMI4cpp)
+include_directories(FMI4cpp)
 
-add_subdirectory("FMI4cpp")
+add_subdirectory(FMI4cpp)
 
 file(GLOB_RECURSE dcpslave_src src/*.cpp src/*.hpp)
 add_executable(dcpslave ${dcpslave_src})

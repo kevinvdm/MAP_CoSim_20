@@ -222,33 +222,6 @@ src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
-src/fmu_test.o: src/fmu_test.cpp.o
-
-.PHONY : src/fmu_test.o
-
-# target to build an object file
-src/fmu_test.cpp.o:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o
-.PHONY : src/fmu_test.cpp.o
-
-src/fmu_test.i: src/fmu_test.cpp.i
-
-.PHONY : src/fmu_test.i
-
-# target to preprocess a source file
-src/fmu_test.cpp.i:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/fmu_test.cpp.i
-.PHONY : src/fmu_test.cpp.i
-
-src/fmu_test.s: src/fmu_test.cpp.s
-
-.PHONY : src/fmu_test.s
-
-# target to generate assembly for a file
-src/fmu_test.cpp.s:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/fmu_test.cpp.s
-.PHONY : src/fmu_test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,9 +240,6 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
-	@echo "... src/fmu_test.o"
-	@echo "... src/fmu_test.i"
-	@echo "... src/fmu_test.s"
 .PHONY : help
 
 

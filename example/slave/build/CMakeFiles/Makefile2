@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/kevinv/Documents/MAP_CoSim_20/example/slave/build
 CMakeFiles/dcpslave.dir/all:
 	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/depend
 	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=1,2,3 "Built target dcpslave"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=1,2 "Built target dcpslave"
 .PHONY : CMakeFiles/dcpslave.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/dcpslave.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dcpslave.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/dcpslave.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 0
 .PHONY : CMakeFiles/dcpslave.dir/rule
@@ -177,7 +177,7 @@ FMI4cpp/src/preinstall:
 FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all:
 	$(MAKE) -f FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build.make FMI4cpp/src/CMakeFiles/fmi4cpp.dir/depend
 	$(MAKE) -f FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build.make FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target fmi4cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target fmi4cpp"
 .PHONY : FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all
 
 # Include target in all.
