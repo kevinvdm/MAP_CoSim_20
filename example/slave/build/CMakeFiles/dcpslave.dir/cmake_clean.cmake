@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o"
   "CMakeFiles/dcpslave.dir/src/Main.cpp.o"
+  "CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o"
   "dcpslave.pdb"
   "dcpslave"
 )

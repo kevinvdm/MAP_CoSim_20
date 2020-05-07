@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/kevinv/Documents/MAP_CoSim_20/example/slave/src/External_Sim.cpp
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/src/fmu_test.cpp
+fmi4cpp/fmi4cpp.hpp
+-
 iostream
 -
-fmi4cpp/fmi4cpp.hpp
+string
 -
 

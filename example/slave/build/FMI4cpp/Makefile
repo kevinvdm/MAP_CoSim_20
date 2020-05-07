@@ -102,16 +102,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -124,16 +114,26 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/CMakeFiles/progress.marks
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,111 +143,33 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named dcpslave
+# Convenience name for target.
+FMI4cpp/CMakeFiles/uninstall.dir/rule:
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/CMakeFiles/uninstall.dir/rule
+.PHONY : FMI4cpp/CMakeFiles/uninstall.dir/rule
 
-# Build rule for target.
-dcpslave: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dcpslave
-.PHONY : dcpslave
+# Convenience name for target.
+uninstall: FMI4cpp/CMakeFiles/uninstall.dir/rule
 
-# fast build rule for target.
-dcpslave/fast:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/build
-.PHONY : dcpslave/fast
-
-#=============================================================================
-# Target rules for targets named uninstall
-
-# Build rule for target.
-uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uninstall
 .PHONY : uninstall
 
 # fast build rule for target.
 uninstall/fast:
-	$(MAKE) -f FMI4cpp/CMakeFiles/uninstall.dir/build.make FMI4cpp/CMakeFiles/uninstall.dir/build
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(MAKE) -f FMI4cpp/CMakeFiles/uninstall.dir/build.make FMI4cpp/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
-
-#=============================================================================
-# Target rules for targets named fmi4cpp
-
-# Build rule for target.
-fmi4cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fmi4cpp
-.PHONY : fmi4cpp
-
-# fast build rule for target.
-fmi4cpp/fast:
-	$(MAKE) -f FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build.make FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build
-.PHONY : fmi4cpp/fast
-
-src/Main.o: src/Main.cpp.o
-
-.PHONY : src/Main.o
-
-# target to build an object file
-src/Main.cpp.o:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/Main.cpp.o
-.PHONY : src/Main.cpp.o
-
-src/Main.i: src/Main.cpp.i
-
-.PHONY : src/Main.i
-
-# target to preprocess a source file
-src/Main.cpp.i:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/Main.cpp.i
-.PHONY : src/Main.cpp.i
-
-src/Main.s: src/Main.cpp.s
-
-.PHONY : src/Main.s
-
-# target to generate assembly for a file
-src/Main.cpp.s:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/Main.cpp.s
-.PHONY : src/Main.cpp.s
-
-src/fmu_test.o: src/fmu_test.cpp.o
-
-.PHONY : src/fmu_test.o
-
-# target to build an object file
-src/fmu_test.cpp.o:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o
-.PHONY : src/fmu_test.cpp.o
-
-src/fmu_test.i: src/fmu_test.cpp.i
-
-.PHONY : src/fmu_test.i
-
-# target to preprocess a source file
-src/fmu_test.cpp.i:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/fmu_test.cpp.i
-.PHONY : src/fmu_test.cpp.i
-
-src/fmu_test.s: src/fmu_test.cpp.s
-
-.PHONY : src/fmu_test.s
-
-# target to generate assembly for a file
-src/fmu_test.cpp.s:
-	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/src/fmu_test.cpp.s
-.PHONY : src/fmu_test.cpp.s
 
 # Help Target
 help:
@@ -258,18 +180,10 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... edit_cache"
-	@echo "... dcpslave"
-	@echo "... rebuild_cache"
-	@echo "... list_install_components"
-	@echo "... install"
 	@echo "... uninstall"
-	@echo "... fmi4cpp"
-	@echo "... src/Main.o"
-	@echo "... src/Main.i"
-	@echo "... src/Main.s"
-	@echo "... src/fmu_test.o"
-	@echo "... src/fmu_test.i"
-	@echo "... src/fmu_test.s"
+	@echo "... rebuild_cache"
+	@echo "... install"
+	@echo "... list_install_components"
 .PHONY : help
 
 
@@ -281,6 +195,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kevinv/Documents/MAP_CoSim_20/example/slave/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

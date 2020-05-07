@@ -57,22 +57,9 @@ include CMakeFiles/dcpslave.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/dcpslave.dir/flags.make
 
-CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o: CMakeFiles/dcpslave.dir/flags.make
-CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o: ../src/External_Sim.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o -c /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/External_Sim.cpp
-
-CMakeFiles/dcpslave.dir/src/External_Sim.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcpslave.dir/src/External_Sim.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/External_Sim.cpp > CMakeFiles/dcpslave.dir/src/External_Sim.cpp.i
-
-CMakeFiles/dcpslave.dir/src/External_Sim.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcpslave.dir/src/External_Sim.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/External_Sim.cpp -o CMakeFiles/dcpslave.dir/src/External_Sim.cpp.s
-
 CMakeFiles/dcpslave.dir/src/Main.cpp.o: CMakeFiles/dcpslave.dir/flags.make
 CMakeFiles/dcpslave.dir/src/Main.cpp.o: ../src/Main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dcpslave.dir/src/Main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dcpslave.dir/src/Main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dcpslave.dir/src/Main.cpp.o -c /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/Main.cpp
 
 CMakeFiles/dcpslave.dir/src/Main.cpp.i: cmake_force
@@ -83,16 +70,29 @@ CMakeFiles/dcpslave.dir/src/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcpslave.dir/src/Main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/Main.cpp -o CMakeFiles/dcpslave.dir/src/Main.cpp.s
 
+CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o: CMakeFiles/dcpslave.dir/flags.make
+CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o: ../src/fmu_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o -c /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/fmu_test.cpp
+
+CMakeFiles/dcpslave.dir/src/fmu_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dcpslave.dir/src/fmu_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/fmu_test.cpp > CMakeFiles/dcpslave.dir/src/fmu_test.cpp.i
+
+CMakeFiles/dcpslave.dir/src/fmu_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dcpslave.dir/src/fmu_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kevinv/Documents/MAP_CoSim_20/example/slave/src/fmu_test.cpp -o CMakeFiles/dcpslave.dir/src/fmu_test.cpp.s
+
 # Object files for target dcpslave
 dcpslave_OBJECTS = \
-"CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o" \
-"CMakeFiles/dcpslave.dir/src/Main.cpp.o"
+"CMakeFiles/dcpslave.dir/src/Main.cpp.o" \
+"CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o"
 
 # External object files for target dcpslave
 dcpslave_EXTERNAL_OBJECTS =
 
-dcpslave: CMakeFiles/dcpslave.dir/src/External_Sim.cpp.o
 dcpslave: CMakeFiles/dcpslave.dir/src/Main.cpp.o
+dcpslave: CMakeFiles/dcpslave.dir/src/fmu_test.cpp.o
 dcpslave: CMakeFiles/dcpslave.dir/build.make
 dcpslave: CMakeFiles/dcpslave.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable dcpslave"

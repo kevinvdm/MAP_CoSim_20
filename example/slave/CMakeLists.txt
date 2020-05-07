@@ -19,12 +19,13 @@ find_package(Threads REQUIRED)
 find_package(ASIO REQUIRED )
 
 include_directories("src")
-    
+include_directories(${PROJECT_SOURCE_DIR}/FMI4cpp)
+
+add_subdirectory("FMI4cpp")
+
 file(GLOB_RECURSE dcpslave_src src/*.cpp src/*.hpp)
 add_executable(dcpslave ${dcpslave_src})
 target_link_libraries(dcpslave DCPLib::Ethernet DCPLib::Slave)
-link_libraries(fmi4cpp::fmi4cpp)
-include_directories(${fmi4cpp_SOURCE_DIR}/src/fmi4cpp/tools)
 
 install(TARGETS dcpslave DESTINATION bin)
 

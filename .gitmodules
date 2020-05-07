@@ -1,0 +1,3 @@
+[submodule "example/slave/FMI4cpp"]
+	path = example/slave/FMI4cpp
+	url = https://github.com/NTNU-IHB/FMI4cpp.git
