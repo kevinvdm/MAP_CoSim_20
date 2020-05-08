@@ -23,7 +23,12 @@
     <Variables>
         <Variable name="z" valueReference="1">
             <Output>
-                <Float64 start="10.0"/>
+                <Float64 start="0"/>
+            </Output>
+        </Variable>
+        <Variable name="x" valueReference="3">
+            <Output>
+                <Float64 start="0"/>
             </Output>
         </Variable>
         <Variable name="b" valueReference="2">
@@ -38,8 +43,8 @@
             <Category id="2" name="DCP_SLAVE"/>
         </Categories>
         <Templates>
-            <Template id="1" category="1" level="3" msg="[Time = %float64]: Current step: %uint64 , Frequency: %float64 , Duty cycle: %float64"/>
-            <Template id="2" category="1" level="3" msg="[Time = %float64]: Current step: %uint64 , Frequency: %float64 , Duty cycle: %float64"/>
+            <Template id="1" category="1" level="3" msg="[Time = %float64]: Current step: %uint64 , a = %float64, Frequency: %float64 , Duty cycle: %float64"/>
+            <Template id="2" category="1" level="3" msg="[Time = %float64]: Current step: %uint64 , a = %float64, Frequency: %float64 , Duty cycle: %float64"/>
         </Templates>
     </Log>
 </dcpSlaveDescription>

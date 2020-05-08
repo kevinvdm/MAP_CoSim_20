@@ -55,26 +55,28 @@ public:
         currentStep = 0;
 
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
-        a = manager->getInput<float64_t *>(a_vr);
-        y = manager->getOutput<float64_t *>(y_vr);
+        b = manager->getInput<float64_t *>(b_vr);
+        z = manager->getOutput<float64_t *>(z_vr);
     }
 
     void initialize() {
-        *y = std::sin(currentStep + *a);
+        *z = std::sin(currentStep + *b);
     }
 
     void doStep(uint64_t steps) {
         freq = pwmReader.readFrequency();
+        duty = pwmReader.readDutyCycle();
 
         //timediff is calculated using time resolution that is defined at config level
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *y = std::sin(currentStep + *a);
+        *z = freq;
+        *x = duty;
 
         //log everything
-        manager->Log(SIM_LOG, simulationTime, freq, *a, *y);
+        manager->Log(SIM_LOG, simulationTime, freq, *b, *z, *x);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -115,6 +117,8 @@ public:
 
         std::shared_ptr<Output_t> caus_z = make_Output_ptr<float64_t>();
         slaveDescription.Variables.push_back(make_Variable_output("z", z_vr, caus_z));
+        std::shared_ptr<Output_t> caus_x = make_Output_ptr<float64_t>();
+        slaveDescription.Variables.push_back(make_Variable_output("x", x_vr, caus_x));
         std::shared_ptr<CommonCausality_t> caus_b =
                 make_CommonCausality_ptr<float64_t>();
         caus_b->Float64->start = std::make_shared<std::vector<float64_t>>();
@@ -150,15 +154,18 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64]: sin(%uint64 + %float64) = %float64",
-            {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
+            "[Time = %float64] step: %uint64 b: %float64 freq: %float64 duty: %float64",
+            {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64, DcpDataType::float64});
 
-    //value reference for a = 2 (see slave desc)
-    float64_t *a;
-    const uint32_t a_vr = 2;
-    //value reference for y = 1 (see slave desc)
-    float64_t *y;
-    const uint32_t y_vr = 1;
+    //value reference for b = 2 (see slave desc)
+    float64_t *b;
+    const uint32_t b_vr = 2;
+    //value reference for z = 1 (see slave desc)
+    float64_t *z;
+    const uint32_t z_vr = 1;
+    //value reference for x = 1 (see slave desc)
+    float64_t *x;
+    const uint32_t x_vr = 3;
 
     float_t freq;
 
