@@ -12,9 +12,6 @@
 class PWMRead {
 public:
     PWMRead() {
-        //! create new driver structure
-        pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1);
-        
         //configure input pin
         if (pruio_cap_config(Io, P_IN, 2.)) { 
           printf("failed setting input @P_IN (%s)\n", Io->Errr);
@@ -43,6 +40,10 @@ public:
     }
 
 private:
+
+    //! create new driver structure
+    pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1);
+
     //calculated frequency f and duty cycle d
     float_t f;
     float_t d;
