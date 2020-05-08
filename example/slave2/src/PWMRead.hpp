@@ -4,14 +4,14 @@
 #include <unistd.h>
 #include <errno.h>
 #include "libpruio/pruio.h"
-#include ".libpruio/pruio_pins.h"
+#include "libpruio/pruio_pins.h"
 
 //! The pin for CAP input.
 #define P_IN P9_42
 
 class PWMRead {
 public:
-    PWMRead() :  {
+    PWMRead() {
         //! create new driver structure
         pruIo *Io = pruio_new(PRUIO_DEF_ACTIVE, 0x98, 0, 1);
         
@@ -24,8 +24,6 @@ public:
         if (pruio_config(Io, 1, 0x1FE, 0, 4)) {
                        printf("config failed (%s)\n", Io->Errr);
         }
-        //calculated frequency f and duty cycle d
-        float_t f, d;
     }
 
     //get current input
@@ -43,4 +41,9 @@ public:
         }
         return d;
     }
-}
+
+private:
+    //calculated frequency f and duty cycle d
+    float_t f;
+    float_t d;
+};
