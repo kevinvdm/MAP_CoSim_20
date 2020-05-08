@@ -1,4 +1,3 @@
-
 #ifndef SLAVE_H_
 #define SLAVE_H_
 
@@ -7,12 +6,16 @@
 #include <dcp/logic/DcpManagerSlave.hpp>
 #include <dcp/model/pdu/DcpPduFactory.hpp>
 #include <dcp/driver/ethernet/udp/UdpDriver.hpp>
+#include <PWMRead.hpp>
 
 #include <cstdint>
 #include <cstdio>
 #include <stdarg.h>
 #include <thread>
 #include <cmath>
+
+#define P_OUT P9_21
+#define P_IN P9_42
 
 
 class Slave {
@@ -52,24 +55,26 @@ public:
         currentStep = 0;
 
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
-        b = manager->getInput<float64_t *>(b_vr);
-        z = manager->getOutput<float64_t *>(z_vr);
+        a = manager->getInput<float64_t *>(a_vr);
+        y = manager->getOutput<float64_t *>(y_vr);
     }
 
     void initialize() {
-        *z = *b;
+        *y = std::sin(currentStep + *a);
     }
 
     void doStep(uint64_t steps) {
+        freq = pwmReader.readFrequency();
+
         //timediff is calculated using time resolution that is defined at config level
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *z = *b +10;
+        *y = std::sin(currentStep + *a);
 
         //log everything
-        manager->Log(SIM_LOG, simulationTime, currentStep, *b, *z);
+        manager->Log(SIM_LOG, simulationTime, freq, *a, *y);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -79,6 +84,7 @@ public:
         this->numerator = numerator;
         this->denominator = denominator;
     }
+
 
     void start() { manager->start(); }
 
@@ -129,8 +135,10 @@ private:
     DcpManagerSlave *manager;
     OstreamLog stdLog;
 
+    PWMRead pwmReader;
+
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.0.249"; //DEDICATED LINUX ADDR (SLAVE1)
+    const char *const HOST = "192.168.7.2"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8082; //SLAVE1 PORT. SLAVE2: PORT 8082
 
     uint32_t numerator;
@@ -142,15 +150,17 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64]: step: %uint64 b: %float64 z: %float64",
+            "[Time = %float64]: sin(%uint64 + %float64) = %float64",
             {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
-     
-    //value reference for b = 2 (see slave desc)
-    float64_t *b;
-    const uint32_t b_vr = 2;
-    //value reference for z = 1 (see slave desc)
-    float64_t *z;
-    const uint32_t z_vr = 1;
+
+    //value reference for a = 2 (see slave desc)
+    float64_t *a;
+    const uint32_t a_vr = 2;
+    //value reference for y = 1 (see slave desc)
+    float64_t *y;
+    const uint32_t y_vr = 1;
+
+    float_t freq;
 
 };
 

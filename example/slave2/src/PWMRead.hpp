@@ -21,8 +21,6 @@ public:
         if (pruio_config(Io, 1, 0x1FE, 0, 4)) {
                        printf("config failed (%s)\n", Io->Errr);
         }
-
-        printf("libpruio loaded!");
     }
 
     //get current input
@@ -30,6 +28,7 @@ public:
         if (pruio_cap_Value(Io, P_IN, &f, &d)) {
           printf("failed reading input @P_IN (%s)\n", Io->Errr);
         }
+        printf("Frequency: %10f", f);
         return f;
     }
 
