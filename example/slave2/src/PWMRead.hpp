@@ -21,6 +21,8 @@ public:
         if (pruio_config(Io, 1, 0x1FE, 0, 4)) {
                        printf("config failed (%s)\n", Io->Errr);
         }
+
+        printf("libpruio loaded!");
     }
 
     //get current input
