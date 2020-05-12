@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/dcpslave.dir/src/Main.cpp.o  -o dcpslave -lpthread 
+/usr/bin/c++     CMakeFiles/dcpslave.dir/src/Main.cpp.o  -o dcpslave  -L/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp -Wl,-rpath,/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp: -lpthread 

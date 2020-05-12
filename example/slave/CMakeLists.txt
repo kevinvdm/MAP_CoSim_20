@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 
 project(dcpslave)
@@ -19,9 +19,12 @@ find_package(Threads REQUIRED)
 find_package(ASIO REQUIRED )
 
 include_directories("src")
-include_directories(FMI4cpp)
 
-add_subdirectory(FMI4cpp)
+add_subdirectory("FMI4cpp")
+
+link_directories(${PROJECT_SOURCE_DIR}/FMI4cpp)
+
+include_directories(${PROJECT_SOURCE_DIR}/FMI4cpp/include)
 
 file(GLOB_RECURSE dcpslave_src src/*.cpp src/*.hpp)
 add_executable(dcpslave ${dcpslave_src})

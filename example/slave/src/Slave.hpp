@@ -7,7 +7,7 @@
 #include <dcp/logic/DcpManagerSlave.hpp>
 #include <dcp/model/pdu/DcpPduFactory.hpp>
 #include <dcp/driver/ethernet/udp/UdpDriver.hpp>
-#include <fmi4cpp/fmi4cpp.hpp>
+#include <FMULoader.hpp>
 
 #include <cstdint>
 #include <cstdio>
@@ -132,6 +132,8 @@ private:
     UdpDriver* udpDriver;
     const char *const HOST = "192.168.0.249"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8080; //SLAVE1 PORT. SLAVE2: PORT 8082
+
+    FMULoader FmuLoader;
 
     uint32_t numerator;
     uint32_t denominator;

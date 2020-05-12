@@ -17,7 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
-  "../FMI4cpp"
+  "../FMI4cpp/include"
   "/usr/local/include/DCPLib/ethernet"
   "/usr/local/include"
   "/usr/local/include/DCPLib/core"
