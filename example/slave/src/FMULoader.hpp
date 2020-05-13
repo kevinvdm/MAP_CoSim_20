@@ -18,37 +18,34 @@ public:
         
         std::cout << "Name=" << var.name() << ", start=" << var.start().value_or(0) << std::endl;
 
-        auto slave1 = cs_fmu->new_instance();
-        auto slave2 = cs_fmu->new_instance();
+        auto slave = cs_fmu->new_instance();
 
-        std::cout << "model_identifier=" << slave1->get_model_description()->model_identifier << std::endl;
+        std::cout << "model_identifier=" << slave->get_model_description()->model_identifier << std::endl;
 
-        slave1->setup_experiment();
-        slave1->enter_initialization_mode();
-        slave1->exit_initialization_mode();
-
-        slave2->setup_experiment();
-        slave2->enter_initialization_mode();
-        slave2->exit_initialization_mode();
+        slave->setup_experiment();
+        slave->enter_initialization_mode();
+        slave->exit_initialization_mode();
 
         std::vector<fmi2Real> ref(2);
         std::vector<fmi2ValueReference> vr = {
             md->get_variable_by_name("wind").value_reference,
             md->get_variable_by_name("b").value_reference};
         
-        while ((t = slave1->get_simulation_time()) <= stop) {
+        while ((t = slave->get_simulation_time()) <= stop) {
 
-            if (!slave1->step(stepSize)) { break; }
-            if (!slave1->read_real(vr, ref)) { break; }
+            if (!slave->step(stepSize)) { break; }
+            if (!slave->read_real(vr, ref)) { break; }
+        
             std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
+
         }
 
-        std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave1->terminate() == 1 ? "true" : "false") << std::endl;
-        std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave2->terminate() == 1 ? "true" : "false") << std::endl;
+        std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave->terminate() == 1 ? "true" : "false") << std::endl;
+        // std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave2->terminate() == 1 ? "true" : "false") << std::endl;
 
     }
 
-    void simulateFmu(){
+    void doFmuStep(){
 
     }
 
