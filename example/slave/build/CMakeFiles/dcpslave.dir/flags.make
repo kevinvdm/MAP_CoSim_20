@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =   -std=gnu++17
 
-CXX_DEFINES = -DASIO_STANDALONE -DDEBUG
+CXX_DEFINES = -DASIO_STANDALONE -DBOOST_ALL_DYN_LINK=1 -DBOOST_ALL_NO_LIB=1 -DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE=1 -DDEBUG -DLIBZIP_STATIC_LIB_ONLY
 
-CXX_INCLUDES = -I/home/kevinv/Documents/MAP_CoSim_20/example/slave/src -I/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp/include -isystem /usr/local/include/DCPLib/ethernet -isystem /usr/local/include -isystem /usr/local/include/DCPLib/core -isystem /usr/local/include/DCPLib/slave 
+CXX_INCLUDES = -I/home/kevinv/Documents/MAP_CoSim_20/example/slave/src -I/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp/include -I/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp/src/../include -isystem /usr/local/include/DCPLib/ethernet -isystem /usr/local/include -isystem /usr/local/include/DCPLib/core -isystem /usr/local/include/DCPLib/slave 
 

@@ -79,6 +79,8 @@ dcpslave_EXTERNAL_OBJECTS =
 
 dcpslave: CMakeFiles/dcpslave.dir/src/Main.cpp.o
 dcpslave: CMakeFiles/dcpslave.dir/build.make
+dcpslave: FMI4cpp/src/libfmi4cpp.so
+dcpslave: /usr/lib/x86_64-linux-gnu/libzip.so
 dcpslave: CMakeFiles/dcpslave.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable dcpslave"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dcpslave.dir/link.txt --verbose=$(VERBOSE)

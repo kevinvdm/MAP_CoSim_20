@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/dcpslave.dir/src/Main.cpp.o  -o dcpslave  -L/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp -Wl,-rpath,/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp: -lpthread 
+/usr/bin/c++     CMakeFiles/dcpslave.dir/src/Main.cpp.o  -o dcpslave  -L/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp -Wl,-rpath,/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp:/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src: FMI4cpp/src/libfmi4cpp.so -lpthread /usr/lib/x86_64-linux-gnu/libzip.so 

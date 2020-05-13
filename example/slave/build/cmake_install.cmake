@@ -49,7 +49,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dcpslave")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dcpslave"
-         OLD_RPATH "/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp:"
+         OLD_RPATH "/home/kevinv/Documents/MAP_CoSim_20/example/slave/FMI4cpp:/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/dcpslave")

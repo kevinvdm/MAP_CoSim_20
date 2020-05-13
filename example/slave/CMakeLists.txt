@@ -1,13 +1,10 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_CXX_STANDARD 17)
-
 
 project(dcpslave)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/FMI4cpp/cmake")
     
 add_definitions("-DDEBUG")
 
@@ -29,7 +26,7 @@ include_directories(${PROJECT_SOURCE_DIR}/FMI4cpp/include)
 
 file(GLOB_RECURSE dcpslave_src src/*.cpp src/*.hpp)
 add_executable(dcpslave ${dcpslave_src})
-target_link_libraries(dcpslave DCPLib::Ethernet DCPLib::Slave)
+target_link_libraries(dcpslave DCPLib::Ethernet DCPLib::Slave fmi4cpp)
 
 install(TARGETS dcpslave DESTINATION bin)
 

@@ -100,3 +100,105 @@ make[1]: Leaving directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/bu
 make: *** [Makefile:121: cmTC_a2240/fast] Error 2
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bb60d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bb60d.dir/build.make CMakeFiles/cmTC_bb60d.dir/build
+make[1]: Entering directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bb60d.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_bb60d.dir/CheckSymbolExists.c.o   -c /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bb60d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb60d.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_bb60d.dir/CheckSymbolExists.c.o  -o cmTC_bb60d 
+/usr/bin/ld: CMakeFiles/cmTC_bb60d.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x1f): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_bb60d.dir/build.make:87: cmTC_bb60d] Error 1
+make[1]: Leaving directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_bb60d/fast] Error 2
+
+File /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_747bc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_747bc.dir/build.make CMakeFiles/cmTC_747bc.dir/build
+make[1]: Entering directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_747bc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_747bc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.13/Modules/CheckFunctionExists.c
+Linking C executable cmTC_747bc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_747bc.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_747bc.dir/CheckFunctionExists.c.o  -o cmTC_747bc -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_747bc.dir/build.make:87: cmTC_747bc] Error 1
+make[1]: Leaving directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_747bc/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0ce1c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0ce1c.dir/build.make CMakeFiles/cmTC_0ce1c.dir/build
+make[1]: Entering directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ce1c.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_0ce1c.dir/CheckSymbolExists.c.o   -c /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0ce1c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ce1c.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_0ce1c.dir/CheckSymbolExists.c.o  -o cmTC_0ce1c 
+/usr/bin/ld: CMakeFiles/cmTC_0ce1c.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x1f): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_0ce1c.dir/build.make:87: cmTC_0ce1c] Error 1
+make[1]: Leaving directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_0ce1c/fast] Error 2
+
+File /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1b902/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1b902.dir/build.make CMakeFiles/cmTC_1b902.dir/build
+make[1]: Entering directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b902.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1b902.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.13/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1b902
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b902.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1b902.dir/CheckFunctionExists.c.o  -o cmTC_1b902 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_1b902.dir/build.make:87: cmTC_1b902] Error 1
+make[1]: Leaving directory '/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_1b902/fast] Error 2
+
+
