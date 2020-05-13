@@ -8,7 +8,7 @@ using namespace fmi4cpp;
 class FMULoader {
 public:
     FMULoader() {
-
+        fmi2::fmu fmu("ExternalSim_Test.fmu");
     }
 
 

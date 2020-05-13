@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/kevinv/Documents/MAP_CoSim_20/example/slave/build
 CMakeFiles/dcpslave.dir/all:
 	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/depend
 	$(MAKE) -f CMakeFiles/dcpslave.dir/build.make CMakeFiles/dcpslave.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=1,2 "Built target dcpslave"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=3,4 "Built target dcpslave"
 .PHONY : CMakeFiles/dcpslave.dir/all
 
 # Include target in all.
@@ -106,17 +106,20 @@ clean: CMakeFiles/dcpslave.dir/clean
 
 # Convenience name for "all" pass in the directory.
 FMI4cpp/all: FMI4cpp/src/all
+FMI4cpp/all: FMI4cpp/examples/all
 
 .PHONY : FMI4cpp/all
 
 # Convenience name for "clean" pass in the directory.
 FMI4cpp/clean: FMI4cpp/CMakeFiles/uninstall.dir/clean
 FMI4cpp/clean: FMI4cpp/src/clean
+FMI4cpp/clean: FMI4cpp/examples/clean
 
 .PHONY : FMI4cpp/clean
 
 # Convenience name for "preinstall" pass in the directory.
 FMI4cpp/preinstall: FMI4cpp/src/preinstall
+FMI4cpp/preinstall: FMI4cpp/examples/preinstall
 
 .PHONY : FMI4cpp/preinstall
 
@@ -177,7 +180,7 @@ FMI4cpp/src/preinstall:
 FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all:
 	$(MAKE) -f FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build.make FMI4cpp/src/CMakeFiles/fmi4cpp.dir/depend
 	$(MAKE) -f FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build.make FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target fmi4cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target fmi4cpp"
 .PHONY : FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all
 
 # Include target in all.
@@ -204,6 +207,178 @@ FMI4cpp/src/CMakeFiles/fmi4cpp.dir/clean:
 
 # clean rule for target.
 clean: FMI4cpp/src/CMakeFiles/fmi4cpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory FMI4cpp/examples
+
+# Convenience name for "all" pass in the directory.
+FMI4cpp/examples/all: FMI4cpp/examples/CMakeFiles/torsionbar.dir/all
+FMI4cpp/examples/all: FMI4cpp/examples/CMakeFiles/fmu_test.dir/all
+FMI4cpp/examples/all: FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/all
+FMI4cpp/examples/all: FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/all
+
+.PHONY : FMI4cpp/examples/all
+
+# Convenience name for "clean" pass in the directory.
+FMI4cpp/examples/clean: FMI4cpp/examples/CMakeFiles/torsionbar.dir/clean
+FMI4cpp/examples/clean: FMI4cpp/examples/CMakeFiles/fmu_test.dir/clean
+FMI4cpp/examples/clean: FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/clean
+FMI4cpp/examples/clean: FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/clean
+
+.PHONY : FMI4cpp/examples/clean
+
+# Convenience name for "preinstall" pass in the directory.
+FMI4cpp/examples/preinstall:
+
+.PHONY : FMI4cpp/examples/preinstall
+
+#=============================================================================
+# Target rules for target FMI4cpp/examples/CMakeFiles/torsionbar.dir
+
+# All Build rule for target.
+FMI4cpp/examples/CMakeFiles/torsionbar.dir/all: FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/torsionbar.dir/build.make FMI4cpp/examples/CMakeFiles/torsionbar.dir/depend
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/torsionbar.dir/build.make FMI4cpp/examples/CMakeFiles/torsionbar.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=24,25 "Built target torsionbar"
+.PHONY : FMI4cpp/examples/CMakeFiles/torsionbar.dir/all
+
+# Include target in all.
+all: FMI4cpp/examples/CMakeFiles/torsionbar.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+FMI4cpp/examples/CMakeFiles/torsionbar.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 17
+	$(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/examples/CMakeFiles/torsionbar.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 0
+.PHONY : FMI4cpp/examples/CMakeFiles/torsionbar.dir/rule
+
+# Convenience name for target.
+torsionbar: FMI4cpp/examples/CMakeFiles/torsionbar.dir/rule
+
+.PHONY : torsionbar
+
+# clean rule for target.
+FMI4cpp/examples/CMakeFiles/torsionbar.dir/clean:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/torsionbar.dir/build.make FMI4cpp/examples/CMakeFiles/torsionbar.dir/clean
+.PHONY : FMI4cpp/examples/CMakeFiles/torsionbar.dir/clean
+
+# clean rule for target.
+clean: FMI4cpp/examples/CMakeFiles/torsionbar.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target FMI4cpp/examples/CMakeFiles/fmu_test.dir
+
+# All Build rule for target.
+FMI4cpp/examples/CMakeFiles/fmu_test.dir/all: FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/fmu_test.dir/build.make FMI4cpp/examples/CMakeFiles/fmu_test.dir/depend
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/fmu_test.dir/build.make FMI4cpp/examples/CMakeFiles/fmu_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=20,21 "Built target fmu_test"
+.PHONY : FMI4cpp/examples/CMakeFiles/fmu_test.dir/all
+
+# Include target in all.
+all: FMI4cpp/examples/CMakeFiles/fmu_test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+FMI4cpp/examples/CMakeFiles/fmu_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 17
+	$(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/examples/CMakeFiles/fmu_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 0
+.PHONY : FMI4cpp/examples/CMakeFiles/fmu_test.dir/rule
+
+# Convenience name for target.
+fmu_test: FMI4cpp/examples/CMakeFiles/fmu_test.dir/rule
+
+.PHONY : fmu_test
+
+# clean rule for target.
+FMI4cpp/examples/CMakeFiles/fmu_test.dir/clean:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/fmu_test.dir/build.make FMI4cpp/examples/CMakeFiles/fmu_test.dir/clean
+.PHONY : FMI4cpp/examples/CMakeFiles/fmu_test.dir/clean
+
+# clean rule for target.
+clean: FMI4cpp/examples/CMakeFiles/fmu_test.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target FMI4cpp/examples/CMakeFiles/multiple_fmus.dir
+
+# All Build rule for target.
+FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/all: FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/build.make FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/depend
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/build.make FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=22,23 "Built target multiple_fmus"
+.PHONY : FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/all
+
+# Include target in all.
+all: FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 17
+	$(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 0
+.PHONY : FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/rule
+
+# Convenience name for target.
+multiple_fmus: FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/rule
+
+.PHONY : multiple_fmus
+
+# clean rule for target.
+FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/clean:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/build.make FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/clean
+.PHONY : FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/clean
+
+# clean rule for target.
+clean: FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target FMI4cpp/examples/CMakeFiles/controlled_temperature.dir
+
+# All Build rule for target.
+FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/all: FMI4cpp/src/CMakeFiles/fmi4cpp.dir/all
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/build.make FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/depend
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/build.make FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles --progress-num=1,2 "Built target controlled_temperature"
+.PHONY : FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/all
+
+# Include target in all.
+all: FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 17
+	$(MAKE) -f CMakeFiles/Makefile2 FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/CMakeFiles 0
+.PHONY : FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/rule
+
+# Convenience name for target.
+controlled_temperature: FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/rule
+
+.PHONY : controlled_temperature
+
+# clean rule for target.
+FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/clean:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/build.make FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/clean
+.PHONY : FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/clean
+
+# clean rule for target.
+clean: FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/clean
 
 .PHONY : clean
 

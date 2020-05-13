@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 project(dcpslave)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/FMI4cpp/cmake")
     
 add_definitions("-DDEBUG")
 

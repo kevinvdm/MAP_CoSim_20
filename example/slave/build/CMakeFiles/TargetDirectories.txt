@@ -19,3 +19,13 @@
 /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src/CMakeFiles/rebuild_cache.dir
 /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src/CMakeFiles/list_install_components.dir
 /home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src/CMakeFiles/install.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/install/strip.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/install/local.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/install.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/list_install_components.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/rebuild_cache.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/torsionbar.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/fmu_test.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/edit_cache.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/multiple_fmus.dir
+/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/CMakeFiles/controlled_temperature.dir

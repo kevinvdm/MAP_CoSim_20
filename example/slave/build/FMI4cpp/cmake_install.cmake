@@ -71,6 +71,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src/cmake_install.cmake")
+  include("/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/examples/cmake_install.cmake")
 
 endif()
 

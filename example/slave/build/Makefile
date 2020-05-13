@@ -195,6 +195,58 @@ fmi4cpp/fast:
 	$(MAKE) -f FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build.make FMI4cpp/src/CMakeFiles/fmi4cpp.dir/build
 .PHONY : fmi4cpp/fast
 
+#=============================================================================
+# Target rules for targets named torsionbar
+
+# Build rule for target.
+torsionbar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 torsionbar
+.PHONY : torsionbar
+
+# fast build rule for target.
+torsionbar/fast:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/torsionbar.dir/build.make FMI4cpp/examples/CMakeFiles/torsionbar.dir/build
+.PHONY : torsionbar/fast
+
+#=============================================================================
+# Target rules for targets named fmu_test
+
+# Build rule for target.
+fmu_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fmu_test
+.PHONY : fmu_test
+
+# fast build rule for target.
+fmu_test/fast:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/fmu_test.dir/build.make FMI4cpp/examples/CMakeFiles/fmu_test.dir/build
+.PHONY : fmu_test/fast
+
+#=============================================================================
+# Target rules for targets named multiple_fmus
+
+# Build rule for target.
+multiple_fmus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multiple_fmus
+.PHONY : multiple_fmus
+
+# fast build rule for target.
+multiple_fmus/fast:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/build.make FMI4cpp/examples/CMakeFiles/multiple_fmus.dir/build
+.PHONY : multiple_fmus/fast
+
+#=============================================================================
+# Target rules for targets named controlled_temperature
+
+# Build rule for target.
+controlled_temperature: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controlled_temperature
+.PHONY : controlled_temperature
+
+# fast build rule for target.
+controlled_temperature/fast:
+	$(MAKE) -f FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/build.make FMI4cpp/examples/CMakeFiles/controlled_temperature.dir/build
+.PHONY : controlled_temperature/fast
+
 src/Main.o: src/Main.cpp.o
 
 .PHONY : src/Main.o
@@ -237,6 +289,10 @@ help:
 	@echo "... install"
 	@echo "... uninstall"
 	@echo "... fmi4cpp"
+	@echo "... torsionbar"
+	@echo "... fmu_test"
+	@echo "... multiple_fmus"
+	@echo "... controlled_temperature"
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"

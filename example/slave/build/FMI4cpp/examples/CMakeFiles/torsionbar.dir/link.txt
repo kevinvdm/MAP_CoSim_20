@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/torsionbar.dir/torsionbar.cpp.o  -o torsionbar -Wl,-rpath,/home/kevinv/Documents/MAP_CoSim_20/example/slave/build/FMI4cpp/src ../src/libfmi4cpp.so /usr/lib/x86_64-linux-gnu/libzip.so 
