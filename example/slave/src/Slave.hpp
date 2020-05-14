@@ -66,6 +66,10 @@ public:
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
+        FmuLoader.doFmuStep(timeDiff);
+
+        *a = FmuLoader.getWind();
+
         //calculate new value
         *y = *a;
 

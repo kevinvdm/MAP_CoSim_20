@@ -42,17 +42,30 @@ public:
 
     }
 
-    void doFmuStep(){
-        while(1){
-            if (!slave->step(stepSize)){
-                break;
-            }
-            if (!slave->read_real(vr, ref)) { 
-                break; 
-            }
+    void doFmuStep(float64_t stepSize){
+            slave->step(stepSize);
+            slave->read_real(vr, ref);
             std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
-        }
     }
+
+    float64_t getWind(){
+        return ref[0];
+    }
+
+    float64_t getIncline(){
+        return ref[1];
+    }
+
+    // float_t doFmuStep_b(stepSize_t){
+    //         if (!slave->step(stepSize_t)){
+    //             break;
+    //         }
+    //         if (!slave->read_real(vr, ref)) { 
+    //             break; 
+    //         }
+    //         std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
+    //         return ref[1];
+    // }
 
 
 private:
@@ -65,9 +78,6 @@ private:
 
     std::vector<fmi2ValueReference> vr;
     std::vector<fmi2Real> ref = std::vector<fmi2Real>(2);
-
-    const double stop = 10;
-    const double stepSize = 1E-3;
 
     double t = 0;
 
