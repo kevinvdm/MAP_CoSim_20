@@ -6,7 +6,7 @@
 #include <dcp/logic/DcpManagerSlave.hpp>
 #include <dcp/model/pdu/DcpPduFactory.hpp>
 #include <dcp/driver/ethernet/udp/UdpDriver.hpp>
-#include <PWMRead.hpp>
+//#include <PWMRead.hpp>
 
 #include <cstdint>
 #include <cstdio>
@@ -64,16 +64,16 @@ public:
     }
 
     void doStep(uint64_t steps) {
-        freq = pwmReader.readFrequency();
-        duty = pwmReader.readDutyCycle();
+        //freq = pwmReader.readFrequency();
+        //duty = pwmReader.readDutyCycle();
 
         //timediff is calculated using time resolution that is defined at config level
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *z = freq;
-        *x = duty;
+        //*z = freq;
+        //*x = duty;
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, freq, *b, *z, *x);
@@ -139,10 +139,10 @@ private:
     DcpManagerSlave *manager;
     OstreamLog stdLog;
 
-    PWMRead pwmReader;
+    //PWMRead pwmReader;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.7.2"; //DEDICATED LINUX ADDR (SLAVE1)
+    const char *const HOST = "192.168.1.31"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8082; //SLAVE1 PORT. SLAVE2: PORT 8082
 
     uint32_t numerator;

@@ -22,7 +22,9 @@ include_directories("src")
     
 file(GLOB_RECURSE dcpslave_src src/*.cpp src/*.hpp)
 add_executable(dcpslave ${dcpslave_src})
-target_link_libraries(dcpslave DCPLib::Ethernet DCPLib::Slave pruio)
+
+#[[ADD PRUIO TO INCLUDE LIBPRUIO TO COMMAND BELOW]]
+target_link_libraries(dcpslave DCPLib::Ethernet DCPLib::Slave)
 
 
 install(TARGETS dcpslave DESTINATION bin)

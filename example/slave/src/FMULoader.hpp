@@ -38,7 +38,7 @@ public:
 
         // }
 
-        std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave->terminate() == 1 ? "true" : "false") << std::endl;
+        //std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave->terminate() == 1 ? "true" : "false") << std::endl;
 
     }
 
@@ -71,7 +71,7 @@ public:
 private:
 
 
-    const std::string fmu_path;
+    const std::string fmu_path = "ExternalSim_Test.fmu";
     std::unique_ptr<fmi4cpp::fmi2::cs_fmu> cs_fmu;
     std::unique_ptr<fmi4cpp::fmi2::cs_slave> slave;
     std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;

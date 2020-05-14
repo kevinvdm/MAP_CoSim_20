@@ -1,4 +1,4 @@
-
+//https://i.imgur.com/YUtmYVl.png
 #ifndef SLAVE_H_
 #define SLAVE_H_
 
@@ -134,7 +134,7 @@ private:
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.0.249"; //DEDICATED LINUX ADDR (SLAVE1)
+    const char *const HOST = "192.168.1.31"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8080; //SLAVE1 PORT. SLAVE2: PORT 8082
 
     FMULoader FmuLoader;
