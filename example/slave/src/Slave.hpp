@@ -1,4 +1,3 @@
-//https://i.imgur.com/YUtmYVl.png
 #ifndef SLAVE_H_
 #define SLAVE_H_
 
@@ -55,10 +54,12 @@ public:
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
         a = manager->getInput<float64_t *>(a_vr);
         y = manager->getOutput<float64_t *>(y_vr);
+        w = manager->getOutput<float64_t *>(w_vr);
     }
 
     void initialize() {
-        *y = *a;
+        *y = 0;
+        *w = 0;
     }
 
     void doStep(uint64_t steps) {
@@ -68,10 +69,9 @@ public:
 
         FmuLoader.doFmuStep(timeDiff);
 
-        *a = FmuLoader.getWind();
-
         //calculate new value
-        *y = *a;
+        *y = *FmuLoader.getIncline();
+        *w = *FmuLoader.getWind();
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *a, *y);
@@ -114,6 +114,8 @@ public:
 
         std::shared_ptr<Output_t> caus_y = make_Output_ptr<float64_t>();
         slaveDescription.Variables.push_back(make_Variable_output("y", y_vr, caus_y));
+        std::shared_ptr<Output_t> caus_w = make_Output_ptr<float64_t>();
+        slaveDescription.Variables.push_back(make_Variable_output("w", w_vr, caus_w));
         std::shared_ptr<CommonCausality_t> caus_a =
                 make_CommonCausality_ptr<float64_t>();
         caus_a->Float64->start = std::make_shared<std::vector<float64_t>>();
@@ -157,6 +159,9 @@ private:
     //value reference for y = 1 (see slave desc)
     float64_t *y;
     const uint32_t y_vr = 1;
+    //value reference for w = 3 (see slave desc)
+    float64_t *w;
+    const uint32_t w_vr = 3;
 
 };
 
