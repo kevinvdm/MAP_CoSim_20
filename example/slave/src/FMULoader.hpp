@@ -25,20 +25,18 @@ public:
         slave->enter_initialization_mode();
         slave->exit_initialization_mode();
 
-        ref = ref(2);
-
         vr = {
             md->get_variable_by_name("wind").value_reference,
             md->get_variable_by_name("b").value_reference};
         
-        while ((t = slave->get_simulation_time()) <= stop) {
+        // while ((t = slave->get_simulation_time()) <= stop) {
 
-            if (!slave->step(stepSize)) { break; }
-            if (!slave->read_real(vr, ref)) { break; }
+        //     if (!slave->step(stepSize)) { break; }
+        //     if (!slave->read_real(vr, ref)) { break; }
         
-            std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
+        //     std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
 
-        }
+        // }
 
         std::cout << "FMU '" << fmu.model_name() << "' terminated with success: " << (slave->terminate() == 1 ? "true" : "false") << std::endl;
 
@@ -52,6 +50,7 @@ public:
             if (!slave->read_real(vr, ref)) { 
                 break; 
             }
+            std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
         }
     }
 
@@ -65,7 +64,7 @@ private:
     std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;
 
     std::vector<fmi2ValueReference> vr;
-    std::vector<fmi2Real> ref;
+    std::vector<fmi2Real> ref = std::vector<fmi2Real>(2);
 
     const double stop = 10;
     const double stepSize = 1E-3;
