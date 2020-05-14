@@ -11,7 +11,7 @@ public:
         fmi2::fmu fmu(fmu_path);
         cs_fmu = fmu.as_cs_fmu();
 
-        auto md = cs_fmu->get_model_description();
+        md = cs_fmu->get_model_description();
 
         auto var = md->model_variables->getByValueReference(1).as_real();
         
@@ -25,8 +25,9 @@ public:
         slave->enter_initialization_mode();
         slave->exit_initialization_mode();
 
-        std::vector<fmi2Real> ref(2);
-        std::vector<fmi2ValueReference> vr = {
+        ref = ref(2);
+
+        vr = {
             md->get_variable_by_name("wind").value_reference,
             md->get_variable_by_name("b").value_reference};
         
@@ -44,16 +45,27 @@ public:
     }
 
     void doFmuStep(){
-
+        while(1){
+            if (!slave->step(stepSize)){
+                break;
+            }
+            if (!slave->read_real(vr, ref)) { 
+                break; 
+            }
+        }
     }
 
 
 private:
 
 
-    const std::string fmu_path;;
+    const std::string fmu_path;
     std::unique_ptr<fmi4cpp::fmi2::cs_fmu> cs_fmu;
-    std::unique_ptr<fmi2::cs_slave> slave;
+    std::unique_ptr<fmi4cpp::fmi2::cs_slave> slave;
+    std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;
+
+    std::vector<fmi2ValueReference> vr;
+    std::vector<fmi2Real> ref;
 
     const double stop = 10;
     const double stepSize = 1E-3;
