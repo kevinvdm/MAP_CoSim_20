@@ -36,6 +36,11 @@
                 <Float64 start="0"/>
             </Input>
         </Variable>
+        <Variable name="t" valueReference="4">
+            <Input>
+                <Float64 start="0"/>
+            </Input>
+        </Variable>
     </Variables>
     <Log>
         <Categories>
@@ -43,8 +48,8 @@
             <Category id="2" name="DCP_SLAVE"/>
         </Categories>
         <Templates>
-            <Template id="1" category="1" level="3" msg="[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"/>
-            <Template id="2" category="1" level="3" msg="[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"/>
+            <Template id="1" category="1" level="3" msg="[Time = %float64]: step: %uint64 Velocity (O): %float64 , Incline (I): %float64 , Wind (I): %float64, Throttle (I): %float64"/>
+            <Template id="2" category="1" level="3" msg="[Time = %float64]: step: %uint64 Velocity (O): %float64 , Incline (I): %float64 , Wind (I): %float64, Throttle (I): %float64"/>
         </Templates>
     </Log>
 </dcpSlaveDescription>
