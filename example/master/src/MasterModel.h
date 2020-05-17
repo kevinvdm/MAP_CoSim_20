@@ -95,9 +95,10 @@ private:
         manager->CFG_scope(1, 1, DcpScope::Initialization_Run_NonRealTime);
         manager->CFG_scope(1, 2, DcpScope::Initialization_Run_NonRealTime);
 
-        manager->CFG_input(1, 1, 0, slaveDescription->Variables.at(1).valueReference, DcpDataType::float64);
+        manager->CFG_input(1, 1, 0, slaveDescription->Variables.at(0).valueReference, DcpDataType::float64);
         
-        manager->CFG_output(1, 2, 0, slaveDescription->Variables.at(0).valueReference);
+        manager->CFG_output(1, 2, 1, slaveDescription->Variables.at(1).valueReference);
+        manager->CFG_output(1, 2, 2, slaveDescription->Variables.at(2).valueReference);
 
         manager->CFG_steps(1, 1, 1);
         manager->CFG_steps(1, 2, 1);
@@ -121,9 +122,10 @@ private:
         manager->CFG_scope(2, 1, DcpScope::Initialization_Run_NonRealTime);
         manager->CFG_scope(2, 2, DcpScope::Initialization_Run_NonRealTime);
 
-        manager->CFG_input(2, 2, 0, slaveDescription2->Variables.at(1).valueReference, DcpDataType::float64);
-
         manager->CFG_output(2, 1, 0, slaveDescription2->Variables.at(0).valueReference);
+
+        manager->CFG_input(2, 2, 1, slaveDescription2->Variables.at(1).valueReference, DcpDataType::float64);
+        manager->CFG_input(2, 2, 2, slaveDescription2->Variables.at(2).valueReference, DcpDataType::float64);
 
         manager->CFG_steps(2, 1, 1);
         manager->CFG_steps(2, 2, 1);
@@ -238,7 +240,7 @@ private:
     std::map<dcpId_t, DcpState> curState;
 
     UdpDriver *driver;
-    const char *const HOST = "192.168.1.31"; //LINUX ADDRESS
+    const char *const HOST = "192.168.7.1"; //LINUX ADDRESS
     const uint16_t PORT = 8081;
 
     DcpManagerMaster *manager;

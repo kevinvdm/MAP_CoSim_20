@@ -6,7 +6,7 @@
 #include <dcp/logic/DcpManagerSlave.hpp>
 #include <dcp/model/pdu/DcpPduFactory.hpp>
 #include <dcp/driver/ethernet/udp/UdpDriver.hpp>
-//#include <PWMRead.hpp>
+#include <PWMRead.hpp>
 
 #include <cstdint>
 #include <cstdio>
@@ -55,12 +55,13 @@ public:
         currentStep = 0;
 
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
+        v = manager->getOutput<float64_t *>(v_vr);
         b = manager->getInput<float64_t *>(b_vr);
-        z = manager->getOutput<float64_t *>(z_vr);
+        w = manager->getInput<float64_t *>(w_vr);
     }
 
     void initialize() {
-        *z = std::sin(currentStep + *b);
+        *v = pwmReader.readDutyCycle();
     }
 
     void doStep(uint64_t steps) {
@@ -72,11 +73,16 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        //*z = freq;
+        *v = pwmReader.readDutyCycle();;
         //*x = duty;
 
+        //write value to pwm
+        //pwmReader.writePWM(b);
+        //pwmReader.writePWM(w);
+
+
         //log everything
-        manager->Log(SIM_LOG, simulationTime, freq, *b, *z, *x);
+        manager->Log(SIM_LOG, simulationTime, freq, *v, *b, *w);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -115,22 +121,28 @@ public:
         slaveDescription.CapabilityFlags.canProvideLogOnRequest = true;
         slaveDescription.CapabilityFlags.canProvideLogOnNotification = true;
 
-        std::shared_ptr<Output_t> caus_z = make_Output_ptr<float64_t>();
-        slaveDescription.Variables.push_back(make_Variable_output("z", z_vr, caus_z));
-        std::shared_ptr<Output_t> caus_x = make_Output_ptr<float64_t>();
-        slaveDescription.Variables.push_back(make_Variable_output("x", x_vr, caus_x));
+        std::shared_ptr<Output_t> caus_v = make_Output_ptr<float64_t>();
+        slaveDescription.Variables.push_back(make_Variable_output("v", v_vr, caus_v));
+
         std::shared_ptr<CommonCausality_t> caus_b =
                 make_CommonCausality_ptr<float64_t>();
         caus_b->Float64->start = std::make_shared<std::vector<float64_t>>();
-        caus_b->Float64->start->push_back(10.0);
+        caus_b->Float64->start->push_back(0);
         slaveDescription.Variables.push_back(make_Variable_input("b", b_vr, caus_b));
+
+        std::shared_ptr<CommonCausality_t> caus_w =
+                make_CommonCausality_ptr<float64_t>();
+        caus_w->Float64->start = std::make_shared<std::vector<float64_t>>();
+        caus_w->Float64->start->push_back(0);
+        slaveDescription.Variables.push_back(make_Variable_input("w", w_vr, caus_w));
+
         slaveDescription.Log = make_Log_ptr();
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
         slaveDescription.Log->categories.push_back(make_Category(2, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
-                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 b: %float64 z: %float64"));
+                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"));
         slaveDescription.Log->templates.push_back(make_Template(
-                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 b: %float64 z: %float64"));
+                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"));
 
        return slaveDescription;
     }
@@ -139,10 +151,10 @@ private:
     DcpManagerSlave *manager;
     OstreamLog stdLog;
 
-    //PWMRead pwmReader;
+    PWMRead pwmReader;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.1.31"; //DEDICATED LINUX ADDR (SLAVE1)
+    const char *const HOST = "192.168.7.2"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8082; //SLAVE1 PORT. SLAVE2: PORT 8082
 
     uint32_t numerator;
@@ -154,18 +166,18 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64] step: %uint64 b: %float64 freq: %float64 duty: %float64",
+            "[Time = %float64]: step: %uint64 Velocity (O): %float64 , Incline (I): %float64 , Wind (I): %float64",
             {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64, DcpDataType::float64});
 
+    //value reference for v = 1 (see slave desc)
+    float64_t *v;
+    const uint32_t v_vr = 1;
     //value reference for b = 2 (see slave desc)
     float64_t *b;
     const uint32_t b_vr = 2;
-    //value reference for z = 1 (see slave desc)
-    float64_t *z;
-    const uint32_t z_vr = 1;
-    //value reference for x = 1 (see slave desc)
-    float64_t *x;
-    const uint32_t x_vr = 3;
+    //value reference for w = 3 (see slave desc)
+    float64_t *w;
+    const uint32_t w_vr = 3;
 
     float_t freq;
 

@@ -52,13 +52,13 @@ public:
         currentStep = 0;
 
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
-        a = manager->getInput<float64_t *>(a_vr);
-        y = manager->getOutput<float64_t *>(y_vr);
+        v = manager->getInput<float64_t *>(v_vr);
+        b = manager->getOutput<float64_t *>(b_vr);
         w = manager->getOutput<float64_t *>(w_vr);
     }
 
     void initialize() {
-        *y = 0;
+        *b = 0;
         *w = 0;
     }
 
@@ -70,11 +70,11 @@ public:
         FmuLoader.doFmuStep(timeDiff);
 
         //calculate new value
-        *y = *FmuLoader.getIncline();
-        *w = *FmuLoader.getWind();
+        *b = FmuLoader.getIncline();
+        *w = FmuLoader.getWind();
 
         //log everything
-        manager->Log(SIM_LOG, simulationTime, currentStep, *a, *y);
+        manager->Log(SIM_LOG, simulationTime, currentStep, *v, *b, *w);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -112,21 +112,21 @@ public:
         slaveDescription.CapabilityFlags.canProvideLogOnRequest = true;
         slaveDescription.CapabilityFlags.canProvideLogOnNotification = true;
 
-        std::shared_ptr<Output_t> caus_y = make_Output_ptr<float64_t>();
-        slaveDescription.Variables.push_back(make_Variable_output("y", y_vr, caus_y));
+        std::shared_ptr<CommonCausality_t> caus_v =
+                make_CommonCausality_ptr<float64_t>();
+        caus_v->Float64->start = std::make_shared<std::vector<float64_t>>();
+        caus_v->Float64->start->push_back(10.0);
+        slaveDescription.Variables.push_back(make_Variable_input("v", v_vr, caus_v));
+        std::shared_ptr<Output_t> caus_b = make_Output_ptr<float64_t>();
+        slaveDescription.Variables.push_back(make_Variable_output("b", b_vr, caus_b));
         std::shared_ptr<Output_t> caus_w = make_Output_ptr<float64_t>();
         slaveDescription.Variables.push_back(make_Variable_output("w", w_vr, caus_w));
-        std::shared_ptr<CommonCausality_t> caus_a =
-                make_CommonCausality_ptr<float64_t>();
-        caus_a->Float64->start = std::make_shared<std::vector<float64_t>>();
-        caus_a->Float64->start->push_back(10.0);
-        slaveDescription.Variables.push_back(make_Variable_input("a", a_vr, caus_a));
         slaveDescription.Log = make_Log_ptr();
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
-                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 a: %float64 y: %float64"));
+                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"));
         slaveDescription.Log->templates.push_back(make_Template(
-                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 a: %float64 y: %float64"));
+                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"));
 
        return slaveDescription;
     }
@@ -136,7 +136,7 @@ private:
     OstreamLog stdLog;
 
     UdpDriver* udpDriver;
-    const char *const HOST = "192.168.1.31"; //DEDICATED LINUX ADDR (SLAVE1)
+    const char *const HOST = "192.168.7.1"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8080; //SLAVE1 PORT. SLAVE2: PORT 8082
 
     FMULoader FmuLoader;
@@ -150,15 +150,15 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64]: step: %uint64 a: %float64 y: %float64",
-            {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
+            "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64",
+            {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64, DcpDataType::float64});
      
-    //value reference for a = 2 (see slave desc)
-    float64_t *a;
-    const uint32_t a_vr = 2;
-    //value reference for y = 1 (see slave desc)
-    float64_t *y;
-    const uint32_t y_vr = 1;
+    //value reference for v = 1 (see slave desc)
+    float64_t *v;
+    const uint32_t v_vr = 1;
+    //value reference for b = 2 (see slave desc)
+    float64_t *b;
+    const uint32_t b_vr = 2;
     //value reference for w = 3 (see slave desc)
     float64_t *w;
     const uint32_t w_vr = 3;

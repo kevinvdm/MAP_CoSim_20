@@ -9,7 +9,7 @@
     </TimeRes>
     <TransportProtocols>
         <UDP_IPv4>
-            <Control host="192.168.1.31" port="8082"/>
+            <Control host="192.168.7.2" port="8082"/>
             <DAT_input_output host="127.0.0.1">
                 <AvailablePortRange from="2048" to="65535"/>
             </DAT_input_output>
@@ -21,17 +21,17 @@
     <CapabilityFlags canAcceptConfigPdus="true" canHandleReset="true" canHandleVariableSteps="true" canMonitorHeartbeat="false"
          canProvideLogOnRequest="true" canProvideLogOnNotification="true"/>
     <Variables>
-        <Variable name="z" valueReference="1">
-            <Output>
-                <Float64 start="0"/>
-            </Output>
-        </Variable>
-        <Variable name="x" valueReference="3">
+        <Variable name="v" valueReference="1">
             <Output>
                 <Float64 start="0"/>
             </Output>
         </Variable>
         <Variable name="b" valueReference="2">
+            <Input>
+                <Float64 start="0"/>
+            </Input>
+        </Variable>
+        <Variable name="w" valueReference="3">
             <Input>
                 <Float64 start="0"/>
             </Input>
@@ -43,8 +43,8 @@
             <Category id="2" name="DCP_SLAVE"/>
         </Categories>
         <Templates>
-            <Template id="1" category="1" level="3" msg="[Time = %float64]: Current step: %uint64 , a = %float64, Frequency: %float64 , Duty cycle: %float64"/>
-            <Template id="2" category="1" level="3" msg="[Time = %float64]: Current step: %uint64 , a = %float64, Frequency: %float64 , Duty cycle: %float64"/>
+            <Template id="1" category="1" level="3" msg="[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"/>
+            <Template id="2" category="1" level="3" msg="[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64"/>
         </Templates>
     </Log>
 </dcpSlaveDescription>
