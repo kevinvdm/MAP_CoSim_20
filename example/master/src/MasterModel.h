@@ -97,9 +97,9 @@ private:
 
         manager->CFG_input(1, 1, 0, slaveDescription->Variables.at(0).valueReference, DcpDataType::float64);
         
-        manager->CFG_output(1, 2, 1, slaveDescription->Variables.at(1).valueReference);
-        manager->CFG_output(1, 2, 2, slaveDescription->Variables.at(2).valueReference);
-        manager->CFG_output(1, 2, 3, slaveDescription->Variables.at(3).valueReference);
+        manager->CFG_output(1, 2, 0, slaveDescription->Variables.at(1).valueReference);
+        manager->CFG_output(1, 2, 1, slaveDescription->Variables.at(2).valueReference);
+        manager->CFG_output(1, 2, 2, slaveDescription->Variables.at(3).valueReference);
 
         manager->CFG_steps(1, 1, 1);
         manager->CFG_steps(1, 2, 1);
@@ -125,9 +125,9 @@ private:
 
         manager->CFG_output(2, 1, 0, slaveDescription2->Variables.at(0).valueReference);
 
-        manager->CFG_input(2, 2, 1, slaveDescription2->Variables.at(1).valueReference, DcpDataType::float64);
-        manager->CFG_input(2, 2, 2, slaveDescription2->Variables.at(2).valueReference, DcpDataType::float64);
-        manager->CFG_input(2, 2, 3, slaveDescription2->Variables.at(3).valueReference, DcpDataType::float64);
+        manager->CFG_input(2, 2, 0, slaveDescription2->Variables.at(1).valueReference, DcpDataType::float64);
+        manager->CFG_input(2, 2, 1, slaveDescription2->Variables.at(2).valueReference, DcpDataType::float64);
+        manager->CFG_input(2, 2, 2, slaveDescription2->Variables.at(3).valueReference, DcpDataType::float64);
 
         manager->CFG_steps(2, 1, 1);
         manager->CFG_steps(2, 2, 1);
