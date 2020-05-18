@@ -66,16 +66,13 @@ public:
     }
 
     void doStep(uint64_t steps) {
-        //freq = pwmReader.readFrequency();
-        //duty = pwmReader.readDutyCycle();
 
         //timediff is calculated using time resolution that is defined at config level
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         //calculate new value
-        *v = pwmReader.readDutyCycle();
-        //*x = duty;
+        *v = pwmReader.readFrequency();
 
         //write value to pwm
         //pwmReader.writePWM(b);
