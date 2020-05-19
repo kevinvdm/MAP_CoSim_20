@@ -75,7 +75,7 @@ public:
         *v = pwmReader.readFrequency();
 
         //write value to pwm
-        pwmReader.writePWM(0.6);
+        pwmReader.writePWM(*t);
         //pwmReader.writePWM(w);
 
 

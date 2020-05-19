@@ -61,7 +61,7 @@ public:
     void initialize() {
         *b = 0;
         *w = 0;
-        *t = 1;
+        *t = 0;
     }
 
     void doStep(uint64_t steps) {
@@ -74,7 +74,7 @@ public:
         //calculate new value
         *b = FmuLoader.getIncline();
         *w = FmuLoader.getWind();
-        *t = 1;
+        *t = 0.5;
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *b, *w, *t);
