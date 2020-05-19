@@ -80,7 +80,7 @@ public:
 
 
         //log everything
-        manager->Log(SIM_LOG, simulationTime, freq, *v, *b, *w, *t);
+        manager->Log(SIM_LOG, simulationTime, *v, *b, *w, *t);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -185,8 +185,6 @@ private:
     //value reference for t = 4 (see slave desc)
     float64_t *t;
     const uint32_t t_vr = 4;
-
-    float_t freq;
 
 };
 
