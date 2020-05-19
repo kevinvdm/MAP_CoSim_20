@@ -45,11 +45,11 @@ public:
     }
 
     //set new output
-    float_t writePWM(float_t fo){
-      if (pruio_pwm_setValue(Io, P_OUT, fo, 0.5)) {
+    void writePWM(float64_t t){
+      if (pruio_pwm_setValue(Io, P_OUT, 31250, t)) {
         printf("failed setting output @P_OUT (%s)\n", Io->Errr);
       }
-      printf("Set frequency on P9_21: %10f", fo);
+      printf("Set duty cycle on P9_21: %10f", t);
     }
 
 private:

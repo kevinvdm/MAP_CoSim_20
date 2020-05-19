@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+../src/PWMRead.hpp
+stdio.h
+../src/stdio.h
+termios.h
+-
+unistd.h
+-
+errno.h
+-
+libpruio/pruio.h
+../src/libpruio/pruio.h
+libpruio/pruio_pins.h
+../src/libpruio/pruio_pins.h
+
 /home/kevinv/Documents/MAP_CoSim_20/example/slave2/src/Main.cpp
 Slave.hpp
 /home/kevinv/Documents/MAP_CoSim_20/example/slave2/src/Slave.hpp
@@ -20,6 +34,8 @@ dcp/logic/DcpManagerSlave.hpp
 dcp/model/pdu/DcpPduFactory.hpp
 -
 dcp/driver/ethernet/udp/UdpDriver.hpp
+-
+PWMRead.hpp
 -
 cstdint
 -
