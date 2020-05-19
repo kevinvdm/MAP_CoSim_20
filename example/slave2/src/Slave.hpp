@@ -80,7 +80,7 @@ public:
 
 
         //log everything
-        manager->Log(SIM_LOG, simulationTime, *v, *b, *w, *t);
+        manager->Log(SIM_LOG, simulationTime, currentStep, *v, *b, *w, *t);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
