@@ -98,8 +98,6 @@ private:
         manager->CFG_input(1, 1, 0, slaveDescription->Variables.at(0).valueReference, DcpDataType::float64);
         
         manager->CFG_output(1, 2, 0, slaveDescription->Variables.at(1).valueReference);
-        manager->CFG_output(1, 2, 1, slaveDescription->Variables.at(2).valueReference);
-        manager->CFG_output(1, 2, 2, slaveDescription->Variables.at(3).valueReference);
 
         manager->CFG_steps(1, 1, 1);
         manager->CFG_steps(1, 2, 1);
@@ -116,7 +114,7 @@ private:
                         *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
         manager->CFG_target_network_information_UDP(1, 2,  asio::ip::address_v4::from_string(
                 *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
-        numOfCmd[1] = 13;
+        numOfCmd[1] = 11;
         }
         else {
 
@@ -126,8 +124,6 @@ private:
         manager->CFG_output(2, 1, 0, slaveDescription2->Variables.at(0).valueReference);
 
         manager->CFG_input(2, 2, 0, slaveDescription2->Variables.at(1).valueReference, DcpDataType::float64);
-        manager->CFG_input(2, 2, 1, slaveDescription2->Variables.at(2).valueReference, DcpDataType::float64);
-        manager->CFG_input(2, 2, 2, slaveDescription2->Variables.at(3).valueReference, DcpDataType::float64);
 
         manager->CFG_steps(2, 1, 1);
         manager->CFG_steps(2, 2, 1);
@@ -144,7 +140,7 @@ private:
                         *slaveDescription2->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription2->TransportProtocols.UDP_IPv4->Control->port);
         manager->CFG_target_network_information_UDP(2, 2,  asio::ip::address_v4::from_string(
                 *slaveDescription->TransportProtocols.UDP_IPv4->Control->host).to_ulong(), *slaveDescription->TransportProtocols.UDP_IPv4->Control->port);
-        numOfCmd[2] = 13;
+        numOfCmd[2] = 11;
         }
     }
 

@@ -53,14 +53,10 @@ public:
 
         //returns pointer to input & output variables. param a_vr or y_vr points to value reference, defined in slave desc
         v = manager->getInput<float64_t *>(v_vr);
-        b = manager->getOutput<float64_t *>(b_vr);
-        w = manager->getOutput<float64_t *>(w_vr);
         t = manager->getOutput<float64_t *>(t_vr);
     }
 
     void initialize() {
-        *b = 0;
-        *w = 0;
         *t = 0;
     }
 
@@ -70,14 +66,13 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         FmuLoader.doFmuStep(timeDiff);
+        std::cout << "stepsize=" << timeDiff  << std::endl;
 
         //calculate new value
-        *b = FmuLoader.getIncline();
-        *w = FmuLoader.getWind();
         *t = 0.5;
 
         //log everything
-        manager->Log(SIM_LOG, simulationTime, currentStep, *v, *b, *w, *t);
+        manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -120,18 +115,14 @@ public:
         caus_v->Float64->start = std::make_shared<std::vector<float64_t>>();
         caus_v->Float64->start->push_back(10.0);
         slaveDescription.Variables.push_back(make_Variable_input("v", v_vr, caus_v));
-        std::shared_ptr<Output_t> caus_b = make_Output_ptr<float64_t>();
-        slaveDescription.Variables.push_back(make_Variable_output("b", b_vr, caus_b));
-        std::shared_ptr<Output_t> caus_w = make_Output_ptr<float64_t>();
-        slaveDescription.Variables.push_back(make_Variable_output("w", w_vr, caus_w));
         std::shared_ptr<Output_t> caus_t = make_Output_ptr<float64_t>();
         slaveDescription.Variables.push_back(make_Variable_output("t", t_vr, caus_t));
         slaveDescription.Log = make_Log_ptr();
         slaveDescription.Log->categories.push_back(make_Category(1, "DCP_SLAVE"));
         slaveDescription.Log->templates.push_back(make_Template(
-                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64, Throttle (O): %float64"));
+                1, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Throttle (O): %float64"));
         slaveDescription.Log->templates.push_back(make_Template(
-                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64, Throttle (O): %float64"));
+                2, 1, (uint8_t) DcpLogLevel::LVL_INFORMATION, "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Throttle (O): %float64"));
 
        return slaveDescription;
     }
@@ -155,21 +146,15 @@ private:
     //To call LogTemplate object, followed by the values according to the defined placeholders in the log message has to be passed to the method.
     const LogTemplate SIM_LOG = LogTemplate(
             1, 1, DcpLogLevel::LVL_INFORMATION,
-            "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Incline (O): %float64 , Wind (O): %float64, Throttle (O): %float64",
-            {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64, DcpDataType::float64, DcpDataType::float64});
+            "[Time = %float64]: step: %uint64 Velocity (I): %float64 , Throttle (O): %float64",
+            {DcpDataType::float64, DcpDataType::uint64, DcpDataType::float64, DcpDataType::float64});
      
     //value reference for v = 1 (see slave desc)
     float64_t *v;
     const uint32_t v_vr = 1;
-    //value reference for b = 2 (see slave desc)
-    float64_t *b;
-    const uint32_t b_vr = 2;
-    //value reference for w = 3 (see slave desc)
-    float64_t *w;
-    const uint32_t w_vr = 3;
-    //value reference for t = 4 (see slave desc)
+    //value reference for t = 2 (see slave desc)
     float64_t *t;
-    const uint32_t t_vr = 4;
+    const uint32_t t_vr = 2;
 
 };
 
