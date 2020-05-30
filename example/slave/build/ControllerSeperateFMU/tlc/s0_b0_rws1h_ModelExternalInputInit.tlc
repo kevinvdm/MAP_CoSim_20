@@ -1,0 +1,34 @@
+%implements s0_b0_rws1h_ModelExternalInputInit "C"
+
+%function ModelExternalInputInit(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%<SLibCG_TrackEI(0)>\
+Controller_Seperate_U->Velocity = 0.0;
+%closefile cfgTxt
+%<cfgTxt>
+%assign rtmArgSys = ::CompiledModel.System[::CompiledModel.System[::CompiledModel.RTWCGModules.RTWCGModule[0].CGSystemIdx].NonInlinedParentSystemIdx]
+%if SysFcnArgNeeded("ModelExternalInputInit", rtmArgSys.Interface.RTMArgDef, rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "ModelExternalInputInit"))
+%<SLibCG_AccessArg(0, 5, 0)>
+%endif
+%if SLibCG_ArgAccessed(0, 5, 0)
+%<SLibAccessArg(rtmArgSys.Interface.RTMArgDef, "ModelExternalInputInit", rtmArgSys.CurrentTID, FcnSysModuleIsRateGrouping(rtmArgSys, "ModelExternalInputInit"))>
+%endif
+%if (IsModelReferenceBaseSys(rtmArgSys) && (IsModelRefScalableBuild() || GenerateClassInterface)) ||...
+(GenerateClassInterface && SLibIsMultiInstanceServer(rtmArgSys))
+%<SLibCG_UndoAccessArg(0, 5, 0)>
+%endif
+%endfunction
+%function ModelExternalInputInitFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void ModelExternalInputInit(\
+%assign comma = ""
+%if SLibCG_ArgAccessed(0, 5, 0)
+%<comma>%<::tSimStructType> * const Controller_Seperate_M\
+%assign comma = ", "
+%endif
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 5, fcnProtoType)>
+%endfunction

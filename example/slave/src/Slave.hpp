@@ -65,7 +65,7 @@ public:
         float64_t timeDiff =
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
-        FmuLoader.doFmuStep(timeDiff);
+        FmuLoader.doFmuStep(timeDiff, v);
         std::cout << "stepsize=" << timeDiff  << std::endl;
 
         //calculate new value

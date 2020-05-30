@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\Controller_Seperate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\Controller_Seperate_data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Kevin\Documents\MATLAB\R2020a\FMIKit-Simulink-2.7\grtfmi\fmi2Functions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\Controller_Seperate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\Controller_Seperate_private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\Controller_Seperate_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\multiword_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\rtmodel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\rtwtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\bio_sig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\cg_matrx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\cg_sfun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\dt_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\mdl_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\odesup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\pt_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rt_logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rt_logging_mmi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rt_math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rt_matrx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rt_mxclassid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rt_sim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtmcmacros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtmmacros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtsplntypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_capi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_capi_examples.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_linux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_linux_mac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_modelmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_modelmap_logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_msvc_lshift.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\rtw_windows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\rtw\c\src\sfcn_bridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\blas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\blascompat32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\covrt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\emlrt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\fintrf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\io64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\lapack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\lapacke.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\lapacke_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\libmwjpegreader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\libmwrgb2gray_tbb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\libmwrgb2hsv_tbb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\mat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\mex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\mwmathutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\mwstringutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\polygonBoolean.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\extern\include\tmwtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\cgxert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\fixedpoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\fixpoint_spec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\i18n_c_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\rtw_continuous.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\rtw_extmode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\rtw_matlogging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\rtw_solver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\rtw_storage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sfcn_loader_c_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sigmapdef_sfcn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sigregdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sigstream_rtw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simlogCIntrf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc_compcond.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc_debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc_def.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc_implement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simstruc_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simulink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simulink2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\simulink_solver_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_common_types_def.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_datatype_access.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_fileio_rtw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_fixpt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_prodhwdevicetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_report_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_sample_time_defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_sfcn_st_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_solver_rtw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sl_types_def.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_block_runtime_service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_parallel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_simbridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_simstruct_bridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_ssExecutionInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_vm_lookup_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_vm_rt_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_vm_simstruct_bridge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slexec_vm_zc_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slsv_diagnostic_codegen_c_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slsv_diagnostic_deployment_c_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slsv_diagnostic_logger_type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\slsv_mexhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\solver_zc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Program Files\MATLAB\R2020a\simulink\include\sysran_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Kevin\Documents\MATLAB\R2020a\FMIKit-Simulink-2.7\grtfmi\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\fmiwrapper.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <XML Include="C:\Users\Kevin\Documents\MATLAB\R2020a\Controller_Seperate_grt_fmi_rtw\modelDescription.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{B3FE5598-315F-3604-AEB9-800ED55C0905}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8876CDA8-96BF-3D08-B35A-47CA89474EED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
