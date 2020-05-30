@@ -69,7 +69,7 @@ public:
         std::cout << "stepsize=" << timeDiff  << std::endl;
 
         //calculate new value
-        *t = 0.5;
+        *t = FmuLoader.getThrottle();
 
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
