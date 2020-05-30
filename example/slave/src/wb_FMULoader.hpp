@@ -14,7 +14,6 @@ public:
         md = cs_fmu->get_model_description();
 
         auto var = md->model_variables->getByValueReference(1).as_real();
-        auto var2 = md->model_variables->getByValueReference(2).as_real();
         
         std::cout << "Name=" << var.name() << ", start=" << var.start().value_or(0) << std::endl;
 
@@ -26,10 +25,9 @@ public:
         slave->enter_initialization_mode();
         slave->exit_initialization_mode();
 
-        vr1 = {
-            md->get_variable_by_name("Throttle").value_reference};
-        vr2 = {
-            md->get_variable_by_name("Velocity").value_reference};
+        vr = {
+            md->get_variable_by_name("wind").value_reference,
+            md->get_variable_by_name("b").value_reference};
         
         // while ((t = slave->get_simulation_time()) <= stop) {
 
@@ -44,30 +42,42 @@ public:
 
     }
 
-    void doFmuStep(float64_t stepSize, float64_t v){
+    void doFmuStep(float64_t stepSize){
             slave->step(stepSize);
-            slave->read_real(vr1, ref1);
-            ref2[0] = v;
-            slave->write_real(vr2, ref2);
-            std::cout << "Time=" << t << ", Throttle=" << ref1[0] << ", Velocity=" << ref2[0] << std::endl;
+            slave->read_real(vr, ref);
+            std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
     }
 
-    float64_t getThrottle(){
-        return ref1[0];
+    float64_t getWind(){
+        return ref[0];
     }
+
+    float64_t getIncline(){
+        return ref[1];
+    }
+
+    // float_t doFmuStep_b(stepSize_t){
+    //         if (!slave->step(stepSize_t)){
+    //             break;
+    //         }
+    //         if (!slave->read_real(vr, ref)) { 
+    //             break; 
+    //         }
+    //         std::cout << "Time=" << t << ", Wind=" << ref[0] << ", Incline=" << ref[1] << std::endl;
+    //         return ref[1];
+    // }
+
 
 private:
 
 
-    const std::string fmu_path = "ControllerSeperate.fmu";
+    const std::string fmu_path = "ExternalSim_Test.fmu";
     std::unique_ptr<fmi4cpp::fmi2::cs_fmu> cs_fmu;
     std::unique_ptr<fmi4cpp::fmi2::cs_slave> slave;
     std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;
 
-    std::vector<fmi2ValueReference> vr1;
-    std::vector<fmi2ValueReference> vr2;
-    std::vector<fmi2Real> ref1 = std::vector<fmi2Real>(1);
-    std::vector<fmi2Real> ref2 = std::vector<fmi2Real>(1);
+    std::vector<fmi2ValueReference> vr;
+    std::vector<fmi2Real> ref = std::vector<fmi2Real>(2);
 
     double t = 0;
 
