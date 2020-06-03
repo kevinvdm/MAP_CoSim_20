@@ -71,6 +71,7 @@ public:
         FmuLoader.doFmuStep(timeDiff, v);
         //calculate new value
         *t = FmuLoader.getThrottle();
+	d = FmuLoader.getVdesired();
         if (*t == 1)
 	{
 		*t = 0.9999;
@@ -78,7 +79,7 @@ public:
         //*t = 0.99;
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
-        myfile << simulationTime << "," << *v << "," << *t << "\n";
+        myfile << simulationTime << "," << d << "," << *v << "," << *t << "\n";
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
@@ -163,6 +164,7 @@ private:
     //value reference for t = 2 (see slave desc)
     float64_t *t;
     const uint32_t t_vr = 2;
+    float64_t d;
 
 };
 

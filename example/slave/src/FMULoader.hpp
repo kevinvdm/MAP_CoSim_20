@@ -27,7 +27,8 @@ public:
         slave->exit_initialization_mode();
 
         vr1 = {
-            md->get_variable_by_name("Throttle").value_reference};
+            md->get_variable_by_name("Throttle").value_reference,
+	    md->get_variable_by_name("Vdesired").value_reference};
         vr2 = {
             md->get_variable_by_name("Velocity").value_reference};
         
@@ -49,11 +50,15 @@ public:
             slave->read_real(vr1, ref1);
             ref2[0] = *v;
             slave->write_real(vr2, ref2);
-            std::cout << "Time=" << t << ", Throttle=" << ref1[0] << ", Velocity=" << ref2[0] << std::endl;
+            std::cout << "Time=" << t << ", Throttle=" << ref1[0] << ", Vdesired="  << ref1[1] << ", Velocity=" << ref2[0] << std::endl;
     }
 
     float64_t getThrottle(){
         return ref1[0];
+    }
+
+   float64_t getVdesired(){
+	return ref1[1];
     }
 
 private:
