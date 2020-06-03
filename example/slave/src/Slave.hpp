@@ -60,7 +60,7 @@ public:
 
     void initialize() {
         *t = 0;
-	myfile.open("output.csv");
+	myfile.open("output.csv", std::ofstream::out | std::ofstream::trunc);
 	myfile << "Time,Velocity,Throttle \n";
     }
 
