@@ -8,6 +8,8 @@
 #include <dcp/driver/ethernet/udp/UdpDriver.hpp>
 #include <FMULoader.hpp>
 
+#include <iostream>
+#include <fstream>
 #include <cstdint>
 #include <cstdio>
 #include <stdarg.h>
@@ -58,6 +60,8 @@ public:
 
     void initialize() {
         *t = 0;
+	myfile.open("output.csv");
+	myfile << "Time,Velocity,Throttle \n";
     }
 
     void doStep(uint64_t steps) {
@@ -66,11 +70,14 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         FmuLoader.doFmuStep(timeDiff, v);
-        std::cout << "stepsize=" << timeDiff  << std::endl;
-
+        myfile << simulationTime << "," << v << "," << t << "\n";
         //calculate new value
         *t = FmuLoader.getThrottle();
-
+        if (*t == 1)
+	{
+		*t = 0.9999;
+	}
+        //*t = 0.99;
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
         //calculate new simulationtime based on time resolution
@@ -131,6 +138,8 @@ private:
     DcpManagerSlave *manager;
     OstreamLog stdLog;
 
+    std::ofstream myfile;
+	
     UdpDriver* udpDriver;
     const char *const HOST = "192.168.7.1"; //DEDICATED LINUX ADDR (SLAVE1)
     const int PORT = 8080; //SLAVE1 PORT. SLAVE2: PORT 8082
