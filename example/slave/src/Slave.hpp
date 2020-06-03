@@ -61,7 +61,6 @@ public:
     void initialize() {
         *t = 0;
 	myfile.open("output.csv", std::ofstream::out | std::ofstream::trunc);
-	myfile << "Time,Velocity,Throttle \n";
     }
 
     void doStep(uint64_t steps) {
@@ -70,7 +69,6 @@ public:
                 ((double) numerator) / ((double) denominator) * ((double) steps);
 
         FmuLoader.doFmuStep(timeDiff, v);
-        myfile << simulationTime << "," << v << "," << t << "\n";
         //calculate new value
         *t = FmuLoader.getThrottle();
         if (*t == 1)
@@ -80,6 +78,7 @@ public:
         //*t = 0.99;
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
+        myfile << simulationTime << "," << *v << "," << *t << "\n";
         //calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
