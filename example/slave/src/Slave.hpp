@@ -72,9 +72,9 @@ public:
         //calculate new value
         *t = FmuLoader.getThrottle();
 	d = FmuLoader.getVdesired();
-        if (*t == 1)
-	{
-		*t = 0.9999;
+       
+	if (*t==1){
+	*t = 0.9999;
 	}
         //*t = 0.99;
         //log everything
