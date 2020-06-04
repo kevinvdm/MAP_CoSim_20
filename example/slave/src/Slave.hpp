@@ -71,7 +71,7 @@ public:
         FmuLoader.doFmuStep(timeDiff, v);
         //calculate new value
         *t = FmuLoader.getThrottle();
-	//d = FmuLoader.getVdesired();
+	d = FmuLoader.getVdesired();
         //*t = 0.99;
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
