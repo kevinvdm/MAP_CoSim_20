@@ -59,7 +59,7 @@ public:
     }
 
     void initialize() {
-        *t = 0;
+        *t = FmuLoader.getThrottle();
 	myfile.open("output.csv", std::ofstream::out | std::ofstream::trunc);
     }
 
