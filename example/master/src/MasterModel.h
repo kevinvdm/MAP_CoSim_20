@@ -238,7 +238,7 @@ private:
     std::map<dcpId_t, DcpState> curState;
 
     UdpDriver *driver;
-    const char *const HOST = "192.168.7.1"; //LINUX ADDRESS
+    const char *const HOST = "192.168.0.149"; //LINUX ADDRESS
     const uint16_t PORT = 8081;
 
     DcpManagerMaster *manager;

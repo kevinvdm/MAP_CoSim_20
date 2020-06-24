@@ -9,7 +9,7 @@
     </TimeRes>
     <TransportProtocols>
         <UDP_IPv4>
-            <Control host="192.168.7.2" port="8082"/>
+            <Control host="192.168.0.128" port="8082"/>
             <DAT_input_output host="127.0.0.1">
                 <AvailablePortRange from="2048" to="65535"/>
             </DAT_input_output>
