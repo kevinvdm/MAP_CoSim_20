@@ -243,7 +243,7 @@ private:
 
     DcpManagerMaster *manager;
 
-    uint64_t secondsToSimulate = 5;
+    uint64_t secondsToSimulate = 1220;
     std::map<dcpId_t, uint8_t> numOfCmd;
     std::map<dcpId_t, uint64_t> receivedAcks;
 
