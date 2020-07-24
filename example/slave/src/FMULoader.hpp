@@ -13,8 +13,10 @@ public:
 
         md = cs_fmu->get_model_description();
 
-        auto var = md->model_variables->getByValueReference(5).as_real();
-        auto var2 = md->model_variables->getByValueReference(6).as_real();
+	
+
+        auto var = md->model_variables->getByValueReference(1).as_real();
+        auto var2 = md->model_variables->getByValueReference(2).as_real();
         
         std::cout << "Name=" << var.name() << ", start=" << var.start().value_or(0) << std::endl;
 
@@ -64,7 +66,7 @@ public:
 private:
 
 
-    const std::string fmu_path = "./Controller_Seperate_NEDC.fmu";
+    const std::string fmu_path = "./Controller_Seperate_NEDC_Simulink.fmu";
     std::unique_ptr<fmi4cpp::fmi2::cs_fmu> cs_fmu;
     std::unique_ptr<fmi4cpp::fmi2::cs_slave> slave;
     std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;
