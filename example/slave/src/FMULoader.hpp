@@ -13,12 +13,10 @@ public:
 
         md = cs_fmu->get_model_description();
 
-	
-
-        auto var = md->model_variables->getByValueReference(1).as_real();
-        auto var2 = md->model_variables->getByValueReference(2).as_real();
+        //auto var = md->model_variables->getByValueReference(1).as_real();
+        //auto var2 = md->model_variables->getByValueReference(2).as_real();
         
-        std::cout << "Name=" << var.name() << ", start=" << var.start().value_or(0) << std::endl;
+        //std::cout << "Name=" << var.name() << ", start=" << var.start().value_or(0) << std::endl;
 
         slave = cs_fmu->new_instance();
 
@@ -30,9 +28,11 @@ public:
 
         vr1 = {
             md->get_variable_by_name("Throttle").value_reference,
-	    md->get_variable_by_name("Vdesired").value_reference};
-	vr2 = {
-            md->get_variable_by_name("Velocity").value_reference};
+	        md->get_variable_by_name("Vdesired").value_reference
+            };
+	    vr2 = {
+            md->get_variable_by_name("Velocity").value_reference
+            };
         
         // while ((t = slave->get_simulation_time()) <= stop) {
 
@@ -49,9 +49,9 @@ public:
 
     void doFmuStep(float64_t stepSize, float64_t *v){
             slave->step(stepSize);
-            slave->read_real(vr1, ref1);
             ref2[0] = *v;
             slave->write_real(vr2, ref2);
+            slave->read_real(vr1, ref1);
             std::cout << "Time=" << t << ", Throttle=" << ref1[0] << ", Vdesired="  << ref1[1]  << ", Velocity=" << ref2[0] << std::endl;
     }
 
@@ -66,7 +66,7 @@ public:
 private:
 
 
-    const std::string fmu_path = "./Controller_Seperate_NEDC_Simulink.fmu";
+    const std::string fmu_path = "./Controller_Seperate_Step2.fmu";
     std::unique_ptr<fmi4cpp::fmi2::cs_fmu> cs_fmu;
     std::unique_ptr<fmi4cpp::fmi2::cs_slave> slave;
     std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;
