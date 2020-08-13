@@ -15,6 +15,8 @@
 #include <stdarg.h>
 #include <thread>
 #include <cmath>
+#include <time.h>
+#include <chrono>
 
 
 class Slave {
@@ -75,8 +77,16 @@ public:
         //*t = 0.99;
         //log everything
         manager->Log(SIM_LOG, simulationTime, currentStep, *v, *t);
-        myfile << simulationTime << "," << d << "," << *v << "," << *t << "\n";
-        //calculate new simulationtime based on time resolution
+	if (*t < 0.1){
+		std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+        	auto duration = now.time_since_epoch();
+        	auto millis = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
+		myfile << simulationTime << "," << d << "," << *v << "," << *t << "," << millis << "\n";
+        }
+	else {
+		myfile << simulationTime << "," << d << "," << *v << "," << *t << "\n";
+	}
+	//calculate new simulationtime based on time resolution
         simulationTime += timeDiff;
         currentStep += steps;
     }
