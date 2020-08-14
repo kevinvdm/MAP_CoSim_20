@@ -66,7 +66,7 @@ public:
 private:
 
 
-    const std::string fmu_path = "./Controller_Seperate_NEDC_New.fmu";
+    const std::string fmu_path = "./Controller_Seperate_WLTP_BBB.fmu";
     std::unique_ptr<fmi4cpp::fmi2::cs_fmu> cs_fmu;
     std::unique_ptr<fmi4cpp::fmi2::cs_slave> slave;
     std::shared_ptr<const fmi4cpp::fmi2::cs_model_description> md;
